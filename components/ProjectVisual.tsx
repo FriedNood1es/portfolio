@@ -1,16 +1,21 @@
 import Image from "next/image";
 import type { Project } from "@/lib/content";
 
+const statusText: Record<Project["status"], { text: string; tone: string }> = {
+  shipped: { text: "[shipped]", tone: "text-ok" },
+  "in-progress": { text: "[in progress]", tone: "text-warn" },
+  planned: { text: "[planned]", tone: "text-ink-faint" },
+};
+
 /**
- * The 16:10 visual slot for a project card.
- * Renders the real screenshot when `project.image` is set (drop the file in
- * /public and set the path in lib/content.ts); until then, a styled
- * project-branded placeholder panel keeps the layout finished.
+ * The 16:10 visual slot for a project. Renders the real screenshot when
+ * `project.image` is set (drop the file in /public/projects and set the path
+ * in lib/content.ts); until then, a "no signal" terminal pane holds the slot.
  */
 export default function ProjectVisual({ project }: { project: Project }) {
   if (project.image) {
     return (
-      <div className="relative aspect-[16/10] overflow-hidden rounded-md border border-line">
+      <div className="relative aspect-[16/10] overflow-hidden rounded-sm border border-line">
         <Image
           src={project.image}
           alt={`${project.name} screenshot`}
@@ -22,39 +27,33 @@ export default function ProjectVisual({ project }: { project: Project }) {
     );
   }
 
+  const status = statusText[project.status];
+
   return (
     <div
       role="img"
-      aria-label={`${project.name} — screenshot coming soon`}
-      className="panel-hatch relative flex aspect-[16/10] flex-col justify-between overflow-hidden rounded-md p-4"
-      style={{
-        background: `linear-gradient(145deg,
-          hsl(${project.hue} 34% 24%),
-          hsl(${project.hue} 42% 14%) 65%,
-          hsl(${(project.hue + 40) % 360} 38% 17%))`,
-      }}
+      aria-label={`${project.name} — screenshot pending`}
+      className="flex aspect-[16/10] flex-col overflow-hidden rounded-sm border border-line bg-bg-inset"
     >
-      <div className="flex items-start justify-between">
-        <span className="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-white/50">
-          {project.status === "shipped" ? "screenshot pending" : project.period}
-        </span>
-        <span className="font-mono text-[0.65rem] text-white/30">16:10</span>
+      {/* pane title bar */}
+      <div className="flex items-center justify-between border-b border-line bg-bg-raised px-3 py-1.5 text-[0.65rem] text-ink-faint">
+        <span>{project.slug}.png</span>
+        <span className={status.tone}>{status.text}</span>
       </div>
 
-      <div>
-        <div className="display text-2xl text-white/90 sm:text-3xl">
+      <div className="flex flex-1 flex-col items-center justify-center gap-2 px-4 text-center">
+        <div className="display text-lg font-bold text-ink sm:text-xl">
           {project.name}
         </div>
-        <div className="mt-1 font-mono text-[0.65rem] tracking-wide text-white/45">
+        <div className="text-[0.7rem] text-ink-faint">
+          {project.status === "shipped"
+            ? "░░ screenshot pending ░░"
+            : "░░ no signal yet ░░"}
+        </div>
+        <div className="text-[0.65rem] text-ink-faint">
           {project.stack.slice(0, 3).join(" · ")}
         </div>
       </div>
-
-      {/* corner registration marks, like a print proof */}
-      <span className="absolute left-2 top-2 h-2 w-2 border-l border-t border-white/25" />
-      <span className="absolute right-2 top-2 h-2 w-2 border-r border-t border-white/25" />
-      <span className="absolute bottom-2 left-2 h-2 w-2 border-b border-l border-white/25" />
-      <span className="absolute bottom-2 right-2 h-2 w-2 border-b border-r border-white/25" />
     </div>
   );
 }

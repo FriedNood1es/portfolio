@@ -1,22 +1,17 @@
 import type { Metadata } from "next";
-import { Fraunces, Instrument_Sans, JetBrains_Mono } from "next/font/google";
+import { Martian_Mono, Sometype_Mono } from "next/font/google";
 import "./globals.css";
 
-const display = Fraunces({
+const display = Martian_Mono({
   subsets: ["latin"],
   variable: "--font-display",
-  axes: ["opsz"],
+  weight: ["400", "500", "700", "800"],
 });
 
-const body = Instrument_Sans({
+const body = Sometype_Mono({
   subsets: ["latin"],
   variable: "--font-body",
-});
-
-const mono = JetBrains_Mono({
-  subsets: ["latin"],
-  variable: "--font-mono",
-  weight: ["400", "500"],
+  weight: ["400", "500", "700"],
 });
 
 export const metadata: Metadata = {
@@ -31,7 +26,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${display.variable} ${body.variable} ${mono.variable} antialiased`}
+      className={`${display.variable} ${body.variable} antialiased`}
     >
       <body>{children}</body>
     </html>
