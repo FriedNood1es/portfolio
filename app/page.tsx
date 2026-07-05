@@ -1,5 +1,6 @@
 import Nav from "@/components/Nav";
 import ProjectVisual from "@/components/ProjectVisual";
+import Icon from "@/components/Icons";
 import {
   identity,
   about,
@@ -93,9 +94,19 @@ export default function Home() {
                 href={identity.github}
                 target="_blank"
                 rel="noreferrer"
-                className="rounded-sm border border-line px-4 py-2 text-sm text-ink transition-colors duration-150 hover:border-accent hover:text-accent"
+                className="flex items-center gap-2 rounded-sm border border-line px-4 py-2 text-sm text-ink transition-colors duration-150 hover:border-accent hover:text-accent"
               >
-                github/{identity.githubHandle} ↗
+                <Icon name="github" />
+                {identity.githubHandle}
+              </a>
+              <a
+                href={identity.linkedin}
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-2 rounded-sm border border-line px-4 py-2 text-sm text-ink transition-colors duration-150 hover:border-accent hover:text-accent"
+              >
+                <Icon name="linkedin" />
+                in/{identity.linkedinHandle}
               </a>
             </div>
           </div>
@@ -119,8 +130,8 @@ export default function Home() {
           <dl className="grid gap-x-10 gap-y-7 sm:grid-cols-2">
             {skills.map((g) => (
               <div key={g.label}>
-                <dt className="text-sm font-bold text-ink">
-                  <span className="text-ink-faint"># </span>
+                <dt className="flex items-center gap-2 text-sm font-bold text-ink">
+                  <Icon name={g.icon} className="h-4 w-4 shrink-0 text-accent" />
                   {g.label}
                 </dt>
                 <dd className="mt-2 flex flex-wrap gap-x-2 gap-y-1.5">
@@ -269,17 +280,28 @@ export default function Home() {
           <div className="mt-8 flex flex-wrap gap-3">
             <a
               href={`mailto:${identity.email}`}
-              className="rounded-sm bg-accent px-5 py-2.5 text-sm font-bold text-bg transition-colors duration-150 hover:bg-accent-deep"
+              className="flex items-center gap-2 rounded-sm bg-accent px-5 py-2.5 text-sm font-bold text-bg transition-colors duration-150 hover:bg-accent-deep"
             >
-              mail {identity.email}
+              <Icon name="mail" />
+              {identity.email}
             </a>
             <a
               href={identity.github}
               target="_blank"
               rel="noreferrer"
-              className="rounded-sm border border-line px-5 py-2.5 text-sm text-ink transition-colors duration-150 hover:border-accent hover:text-accent"
+              className="flex items-center gap-2 rounded-sm border border-line px-5 py-2.5 text-sm text-ink transition-colors duration-150 hover:border-accent hover:text-accent"
             >
-              open github ↗
+              <Icon name="github" />
+              github
+            </a>
+            <a
+              href={identity.linkedin}
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center gap-2 rounded-sm border border-line px-5 py-2.5 text-sm text-ink transition-colors duration-150 hover:border-accent hover:text-accent"
+            >
+              <Icon name="linkedin" />
+              linkedin
             </a>
           </div>
         </section>

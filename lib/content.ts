@@ -10,6 +10,8 @@ export const identity = {
   email: "kentlozano45@gmail.com",
   github: "https://github.com/FriedNood1es",
   githubHandle: "FriedNood1es",
+  linkedin: "https://www.linkedin.com/in/kntlzn/",
+  linkedinHandle: "kntlzn",
   site: "kent-lozano.vercel.app",
   degree:
     "BS Information Technology, Holy Cross of Davao College (2020–2026)",
@@ -29,15 +31,17 @@ export const about = [
   `Currently seeking a Junior Software Developer or Mobile Developer role.`,
 ];
 
-export type SkillGroup = { label: string; items: string[] };
+export type SkillGroup = { label: string; icon: string; items: string[] };
 
 export const skills: SkillGroup[] = [
   {
     label: "Languages",
+    icon: "code",
     items: ["TypeScript", "JavaScript (ES6+)", "Dart", "Python", "Java"],
   },
   {
     label: "Mobile & Web",
+    icon: "devices",
     items: [
       "Flutter",
       "React.js",
@@ -50,6 +54,7 @@ export const skills: SkillGroup[] = [
   },
   {
     label: "AI & Machine Learning",
+    icon: "chip",
     items: [
       "TensorFlow Lite",
       "OCR integration",
@@ -58,6 +63,7 @@ export const skills: SkillGroup[] = [
   },
   {
     label: "AI-Assisted Development",
+    icon: "bot",
     items: [
       "Agentic coding (Claude Code, GitHub Copilot)",
       "Prompt engineering",
@@ -66,10 +72,12 @@ export const skills: SkillGroup[] = [
   },
   {
     label: "Backend & Databases",
+    icon: "database",
     items: ["Firebase (Auth, Firestore)", "MySQL", "SQL", "RESTful APIs"],
   },
   {
     label: "Testing & QA",
+    icon: "bug",
     items: [
       "Test case design",
       "Manual & functional testing",
@@ -80,10 +88,12 @@ export const skills: SkillGroup[] = [
   },
   {
     label: "DevOps & Tooling",
+    icon: "branch",
     items: ["Git", "GitHub", "Vercel", "Android Studio", "VS Code"],
   },
   {
     label: "Design",
+    icon: "pen",
     items: ["UI/UX prototyping", "Adobe Photoshop", "Canva"],
   },
 ];
