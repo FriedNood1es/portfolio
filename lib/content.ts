@@ -117,9 +117,14 @@ export type Project = {
   stack: string[];
   summary: string;
   points: string[];
-  link?: { href: string; label: string };
+  /** One or more call-to-action links (live app, repository, etc). */
+  links?: { href: string; label: string }[];
   /** Path under /public. When set, replaces the placeholder panel. */
   image?: string;
+  /** Multiple screenshots under /public — takes priority over `image` and enables the gallery/swipe UI. */
+  images?: string[];
+  /** Screenshots are a phone screen capture (9:20) rather than a wide desktop shot (16:10). */
+  mobileAspect?: boolean;
   /** No screenshot by design — the visual slot points back at the live page instead. */
   selfPreview?: boolean;
   /** Placeholder panel accent hue (deg) until a real screenshot lands. */
@@ -142,11 +147,19 @@ export const projects: Project[] = [
       "Implemented the full product flow — scanning, verification, history, reporting — with Firebase authentication and real-time data.",
       "Leveraged agentic coding tools (Claude Code, GitHub Copilot) for scaffolding, refactoring, and test iteration, reviewing and validating all generated code against project requirements.",
     ],
-    link: {
-      href: "https://github.com/FriedNood1es/basta_fda",
-      label: "View repository",
-    },
-    image: "/projects/bastafda_1.jpg",
+    links: [
+      {
+        href: "https://github.com/FriedNood1es/basta_fda",
+        label: "View repository",
+      },
+    ],
+    images: [
+      "/projects/bastafda_1.jpg",
+      "/projects/bastafda_2.jpg",
+      "/projects/bastafda_3.jpg",
+      "/projects/bastafda_4.jpg",
+    ],
+    mobileAspect: true,
     hue: 152,
   },
   {
@@ -162,26 +175,35 @@ export const projects: Project[] = [
       "Statically generated, zero client-side framework overhead beyond React itself.",
       "Designed and iterated with an agentic coding workflow (Claude Code), with every claim reviewed against the resume.",
     ],
-    link: {
-      href: "https://github.com/FriedNood1es/portfolio",
-      label: "View source",
-    },
+    links: [
+      {
+        href: "https://github.com/FriedNood1es/portfolio",
+        label: "View source",
+      },
+    ],
     selfPreview: true,
     hue: 32,
   },
   {
-    slug: "job-tracker",
-    name: "Job Tracker",
-    status: "planned",
-    period: "Planned",
-    kind: "Web app — not fully planned yet",
-    stack: ["Next.js", "TypeScript"],
+    slug: "kanbo",
+    name: "Kanbo",
+    status: "shipped",
+    period: "2026",
+    kind: "Personal Project — full-stack",
+    stack: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Auth.js", "@dnd-kit"],
     summary:
-      "A job application tracking app/website — early concept stage; scope and stack are still taking shape.",
+      "A drag-and-drop Kanban board for tracking my own job search, with real GitHub/Google sign-in, per-user data, and a conversion-funnel stats page — built to close the backend/database gap in my other projects.",
     points: [
-      "Sketching the core flow: log an application, track its status, set follow-up reminders.",
-      "Stack and architecture not finalized.",
+      "Built the Kanban board on @dnd-kit/react with fractional-position reordering, so dragging a card only ever rewrites that one row, never its neighbors.",
+      "Wired up Auth.js v5 with database-backed sessions and both GitHub and Google OAuth, enforcing per-user data access on every Server Action rather than trusting the client.",
+      "Added a funnel/conversion stats page computed from real stage-transition history, CSV export, stale-application flagging, and a full dark-mode palette rather than a generic color inversion.",
+      "Iterated feature-by-feature with an agentic coding workflow (Claude Code), testing each change against the live app before shipping.",
     ],
+    links: [
+      { href: "https://kanbo-two.vercel.app", label: "View live app" },
+      { href: "https://github.com/FriedNood1es/kanbo", label: "View repository" },
+    ],
+    images: ["/projects/kanbo_1.png", "/projects/kanbo_2.png", "/projects/kanbo_3.png"],
     hue: 265,
   },
 ];

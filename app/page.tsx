@@ -222,16 +222,17 @@ export default function Home() {
                     <span className="text-ink-faint">
                       {p.stack.join(" · ")}
                     </span>
-                    {p.link && (
+                    {p.links?.map((link) => (
                       <a
-                        href={p.link.href}
+                        key={link.href}
+                        href={link.href}
                         target="_blank"
                         rel="noreferrer"
                         className="link font-bold"
                       >
-                        {p.link.label} ↗
+                        {link.label} ↗
                       </a>
-                    )}
+                    ))}
                   </div>
                 </div>
               </article>

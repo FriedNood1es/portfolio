@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Image from "next/image";
 import { useEffect, useMemo, useRef, useState } from "react";
@@ -22,24 +22,17 @@ export default function ProjectVisual({ project }: { project: Project }) {
   const [isMounted, setIsMounted] = useState(false);
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
-  const isBastaFda = project.slug === "bastafda";
+  const isMobileAspect = !!project.mobileAspect;
 
   const images = useMemo(() => {
-    if (!project.image) {
-      return [];
+    if (project.images && project.images.length > 0) {
+      return project.images;
     }
-
-    if (isBastaFda) {
-      return [
-        "/projects/bastafda_1.jpg",
-        "/projects/bastafda_2.jpg",
-        "/projects/bastafda_3.jpg",
-        "/projects/bastafda_4.jpg",
-      ];
+    if (project.image) {
+      return [project.image];
     }
-
-    return [project.image];
-  }, [isBastaFda, project.image]);
+    return [];
+  }, [project.images, project.image]);
 
   const currentImage = images[currentImageIndex];
 
@@ -104,7 +97,7 @@ export default function ProjectVisual({ project }: { project: Project }) {
     setCurrentImageIndex((prev) => (prev + 1) % images.length);
   };
 
-  if (project.image) {
+  if (images.length > 0) {
     const modal =
       isModalOpen && currentImage ? (
         <div
@@ -122,12 +115,12 @@ export default function ProjectVisual({ project }: { project: Project }) {
           >
             <div
               className={`relative overflow-hidden rounded-sm bg-black ${
-                isBastaFda
+                isMobileAspect
                   ? "aspect-[9/20] max-h-[calc(100dvh-4.5rem)] max-w-[calc(100vw-1.5rem)] sm:max-h-[calc(100dvh-5rem)] sm:max-w-[420px]"
                   : "aspect-[16/10] max-h-[calc(100dvh-4.5rem)] max-w-[calc(100vw-1.5rem)] sm:max-h-[calc(100dvh-5rem)] sm:max-w-[960px]"
               }`}
               style={{
-                width: isBastaFda
+                width: isMobileAspect
                   ? "min(420px, calc(100vw - 1.5rem), calc((100dvh - 4.5rem) * 0.45))"
                   : "min(960px, calc(100vw - 1.5rem), calc((100dvh - 4.5rem) * 1.6))",
               }}
@@ -135,9 +128,9 @@ export default function ProjectVisual({ project }: { project: Project }) {
               <Image
                 src={currentImage}
                 alt={`${project.name} screenshot ${currentImageIndex + 1}`}
-                width={isBastaFda ? 1080 : 1600}
-                height={isBastaFda ? 2400 : 1000}
-                sizes={isBastaFda ? "420px" : "960px"}
+                width={isMobileAspect ? 1080 : 1600}
+                height={isMobileAspect ? 2400 : 1000}
+                sizes={isMobileAspect ? "420px" : "960px"}
                 className="h-full w-full object-contain"
                 priority
               />
@@ -210,11 +203,11 @@ export default function ProjectVisual({ project }: { project: Project }) {
           <Image
             src={currentImage}
             alt={`${project.name} screenshot ${currentImageIndex + 1}`}
-            width={isBastaFda ? 1080 : 1600}
-            height={isBastaFda ? 2400 : 1000}
+            width={isMobileAspect ? 1080 : 1600}
+            height={isMobileAspect ? 2400 : 1000}
             sizes="(min-width: 640px) 320px, calc(100vw - 40px)"
-            className={`h-full w-full object-contain ${isBastaFda ? "p-3" : ""}`}
-            priority={isBastaFda}
+            className={`h-full w-full object-contain ${isMobileAspect ? "p-3" : ""}`}
+            priority={isMobileAspect}
           />
 
           <div className="absolute inset-0 flex items-center justify-center bg-black/0 transition-colors duration-300 group-hover:bg-black/40">
@@ -299,7 +292,7 @@ export default function ProjectVisual({ project }: { project: Project }) {
     return (
       <a
         href="#top"
-        aria-label="This site is the live preview — jump back to the top"
+        aria-label="This site is the live preview â€” jump back to the top"
         className="group flex aspect-[16/10] flex-col overflow-hidden rounded-sm border border-line bg-bg-inset transition-colors hover:border-accent"
       >
         <div className="flex items-center justify-between border-b border-line bg-bg-raised px-3 py-1.5 text-[0.65rem] text-ink-faint">
@@ -310,7 +303,7 @@ export default function ProjectVisual({ project }: { project: Project }) {
         <div className="flex flex-1 flex-col justify-center gap-2.5 px-5 text-[0.85rem]">
           <p className="prompt-line text-ink-dim">file {project.slug}/preview.png</p>
           <p className="out-line text-ink">
-            not a screenshot — you&rsquo;re already inside it
+            not a screenshot â€” you&rsquo;re already inside it
           </p>
           <p className="comment text-ink-faint">
             this page is the live build, not a mockup
@@ -322,7 +315,7 @@ export default function ProjectVisual({ project }: { project: Project }) {
         </div>
 
         <div className="border-t border-line px-3 py-1.5 text-center text-[0.65rem] text-ink-faint opacity-0 transition-opacity group-hover:opacity-100">
-          ↑ click to scroll to top
+          â†‘ click to scroll to top
         </div>
       </a>
     );
