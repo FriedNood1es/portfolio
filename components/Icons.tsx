@@ -96,6 +96,13 @@ const paths: Record<string, React.ReactNode> = {
       <path d="m3 7 9 6 9-6" />
     </>
   ),
+  download: (
+    <>
+      <path d="M12 3v12" />
+      <path d="m7 10 5 5 5-5" />
+      <path d="M5 21h14" />
+    </>
+  ),
 };
 
 export default function Icon({

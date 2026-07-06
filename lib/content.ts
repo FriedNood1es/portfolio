@@ -12,6 +12,7 @@ export const identity = {
   githubHandle: "FriedNood1es",
   linkedin: "https://www.linkedin.com/in/kntlzn/",
   linkedinHandle: "kntlzn",
+  resume: "/resume/KentLozano-Resume.pdf",
   site: "kent-lozano.vercel.app",
   degree:
     "BS Information Technology, Holy Cross of Davao College (2020–2026)",
@@ -89,7 +90,14 @@ export const skills: SkillGroup[] = [
   {
     label: "DevOps & Tooling",
     icon: "branch",
-    items: ["Git", "GitHub", "Vercel", "Android Studio", "VS Code"],
+    items: [
+      "Git",
+      "GitHub",
+      "Vercel",
+      "Android Studio",
+      "VS Code",
+      "Debugging & testing workflows",
+    ],
   },
   {
     label: "Design",
@@ -112,6 +120,8 @@ export type Project = {
   link?: { href: string; label: string };
   /** Path under /public. When set, replaces the placeholder panel. */
   image?: string;
+  /** No screenshot by design — the visual slot points back at the live page instead. */
+  selfPreview?: boolean;
   /** Placeholder panel accent hue (deg) until a real screenshot lands. */
   hue: number;
 };
@@ -121,7 +131,7 @@ export const projects: Project[] = [
     slug: "bastafda",
     name: "bastaFDA",
     status: "shipped",
-    period: "2024 – 2026",
+    period: "2025 – 2026",
     kind: "Capstone Project — defended before a faculty panel",
     stack: ["Flutter", "Dart", "TensorFlow Lite", "OCR", "Firebase"],
     summary:
@@ -130,6 +140,7 @@ export const projects: Project[] = [
       "Trained and integrated a TensorFlow Lite image-classification model to identify supported medicine products on-device.",
       "Engineered a multi-scan OCR workflow that aggregates results across captures, improving accuracy on low-quality packaging.",
       "Implemented the full product flow — scanning, verification, history, reporting — with Firebase authentication and real-time data.",
+      "Leveraged agentic coding tools (Claude Code, GitHub Copilot) for scaffolding, refactoring, and test iteration, reviewing and validating all generated code against project requirements.",
     ],
     link: {
       href: "https://github.com/FriedNood1es/basta_fda",
@@ -151,36 +162,25 @@ export const projects: Project[] = [
       "Statically generated, zero client-side framework overhead beyond React itself.",
       "Designed and iterated with an agentic coding workflow (Claude Code), with every claim reviewed against the resume.",
     ],
-    link: { href: "https://github.com/FriedNood1es", label: "GitHub profile" },
+    link: {
+      href: "https://github.com/FriedNood1es/portfolio",
+      label: "View source",
+    },
+    selfPreview: true,
     hue: 32,
   },
   {
-    slug: "gamotcheck",
-    name: "GamotCheck",
-    status: "in-progress",
-    period: "In development",
-    kind: "Flagship web app — continuing the bastaFDA story onto the web",
-    stack: ["Next.js", "TypeScript", "Node.js", "Express", "PostgreSQL"],
-    summary:
-      "A public web app for searching and verifying FDA-registered medicines, with a self-designed REST API, real tests, and CI/CD.",
-    points: [
-      "Self-designed Node/Express REST API over a PostgreSQL schema.",
-      "Tested with Vitest, React Testing Library, and Supertest; shipped through GitHub Actions.",
-    ],
-    hue: 200,
-  },
-  {
-    slug: "modqueue",
-    name: "ModQueue",
+    slug: "job-tracker",
+    name: "Job Tracker",
     status: "planned",
     period: "Planned",
-    kind: "Real-time moderation dashboard",
-    stack: ["React", "WebSockets", "Node.js"],
+    kind: "Web app — not fully planned yet",
+    stack: ["Next.js", "TypeScript"],
     summary:
-      "A real-time content-moderation dashboard that turns a year of professional moderation experience into working software.",
+      "A job application tracking app/website — early concept stage; scope and stack are still taking shape.",
     points: [
-      "Live queue of incoming items with keyboard-driven review actions.",
-      "Built to demonstrate real-time work beyond request/response.",
+      "Sketching the core flow: log an application, track its status, set follow-up reminders.",
+      "Stack and architecture not finalized.",
     ],
     hue: 265,
   },
@@ -201,7 +201,7 @@ export const experience: Experience[] = [
     role: "QA Intern, Developer Track",
     detail: "Academic Intervention System (Laravel)",
     location: "Davao City, Philippines",
-    period: "2025 – 2026",
+    period: "2026",
     points: [
       "Performed QA on an academic intervention system for the Office of the VP for Academic Affairs that monitors per-course and per-professor grade trends behind pass/fail rates.",
       "Designed and executed test cases across grade-checking, analytics, and reporting features; verified grade computations against source academic records.",
@@ -220,3 +220,17 @@ export const experience: Experience[] = [
     ],
   },
 ];
+
+export const education = {
+  org: "Holy Cross of Davao College",
+  degree: "BS Information Technology",
+  location: "Davao City, Philippines",
+  period: "2020 – 2026",
+  capstone: "bastaFDA — Mobile Verification of FDA-Approved Products",
+  coursework: [
+    "Mobile Application Development",
+    "Database Management Systems",
+    "Software Engineering",
+    "Data Structures & Algorithms",
+  ],
+};

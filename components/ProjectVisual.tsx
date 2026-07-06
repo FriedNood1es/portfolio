@@ -295,6 +295,39 @@ export default function ProjectVisual({ project }: { project: Project }) {
 
   const status = statusText[project.status];
 
+  if (project.selfPreview) {
+    return (
+      <a
+        href="#top"
+        aria-label="This site is the live preview — jump back to the top"
+        className="group flex aspect-[16/10] flex-col overflow-hidden rounded-sm border border-line bg-bg-inset transition-colors hover:border-accent"
+      >
+        <div className="flex items-center justify-between border-b border-line bg-bg-raised px-3 py-1.5 text-[0.65rem] text-ink-faint">
+          <span>{project.slug}.png</span>
+          <span className={status.tone}>{status.text}</span>
+        </div>
+
+        <div className="flex flex-1 flex-col justify-center gap-2.5 px-5 text-[0.85rem]">
+          <p className="prompt-line text-ink-dim">file {project.slug}/preview.png</p>
+          <p className="out-line text-ink">
+            not a screenshot — you&rsquo;re already inside it
+          </p>
+          <p className="comment text-ink-faint">
+            this page is the live build, not a mockup
+          </p>
+          <p className="mt-1">
+            <span className="text-accent font-bold">$ </span>
+            <span className="cursor" aria-hidden />
+          </p>
+        </div>
+
+        <div className="border-t border-line px-3 py-1.5 text-center text-[0.65rem] text-ink-faint opacity-0 transition-opacity group-hover:opacity-100">
+          ↑ click to scroll to top
+        </div>
+      </a>
+    );
+  }
+
   return (
     <div
       role="img"

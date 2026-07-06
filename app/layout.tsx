@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Martian_Mono, Sometype_Mono } from "next/font/google";
+import { identity } from "@/lib/content";
 import "./globals.css";
 
 const display = Martian_Mono({
@@ -14,10 +15,27 @@ const body = Sometype_Mono({
   weight: ["400", "500", "700"],
 });
 
+const title = "Kent Lozano — Software Developer, Web & Mobile";
+const description =
+  "Kent Lozano builds web and mobile software with Flutter, TypeScript, React, and Next.js. Creator of bastaFDA, a medicine-verification app using TensorFlow Lite and OCR.";
+const siteUrl = `https://${identity.site}`;
+
 export const metadata: Metadata = {
-  title: "Kent Lozano — Software Developer, Web & Mobile",
-  description:
-    "Kent Lozano builds web and mobile software with Flutter, TypeScript, React, and Next.js. Creator of bastaFDA, a medicine-verification app using TensorFlow Lite and OCR.",
+  metadataBase: new URL(siteUrl),
+  title,
+  description,
+  openGraph: {
+    title,
+    description,
+    url: siteUrl,
+    siteName: identity.name,
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+  },
 };
 
 export default function RootLayout({

@@ -7,6 +7,7 @@ import {
   skills,
   projects,
   experience,
+  education,
   type Project,
 } from "@/lib/content";
 
@@ -89,6 +90,15 @@ export default function Home() {
                 className="rounded-sm bg-accent px-4 py-2 text-sm font-bold text-bg transition-colors duration-150 hover:bg-accent-deep"
               >
                 ls projects/
+              </a>
+              <a
+                href={identity.resume}
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-2 rounded-sm border border-accent px-4 py-2 text-sm font-bold text-accent transition-colors duration-150 hover:bg-accent hover:text-bg"
+              >
+                <Icon name="download" />
+                resume.pdf
               </a>
               <a
                 href={identity.github}
@@ -265,6 +275,31 @@ export default function Home() {
               </article>
             ))}
           </div>
+        </section>
+
+        {/* ————— Education ————— */}
+        <section id="education" className="border-t border-line py-16">
+          <div className="reveal">
+            <PromptHeading cmd="kent --education" />
+          </div>
+          <article className="reveal grid gap-3 sm:grid-cols-[10rem_1fr] sm:gap-10">
+            <div className="text-sm text-ink-faint">
+              {education.period}
+              <div className="mt-0.5 text-xs">{education.location}</div>
+            </div>
+            <div>
+              <h3 className="display text-lg font-bold text-ink">
+                {education.degree}
+              </h3>
+              <p className="mt-0.5 text-sm text-ink-dim">{education.org}</p>
+              <p className="comment mt-3 text-xs">
+                Capstone: {education.capstone}
+              </p>
+              <p className="mt-2 max-w-[62ch] text-[0.875rem] leading-[1.8] text-ink-dim">
+                Coursework: {education.coursework.join(" · ")}
+              </p>
+            </div>
+          </article>
         </section>
 
         {/* ————— Contact ————— */}
