@@ -135,6 +135,7 @@ export const projects: Project[] = [
       href: "https://github.com/FriedNood1es/basta_fda",
       label: "View repository",
     },
+    image: "/projects/bastafda_1.jpg",
     hue: 152,
   },
   {
