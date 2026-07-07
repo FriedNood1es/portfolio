@@ -163,28 +163,6 @@ export const projects: Project[] = [
     hue: 152,
   },
   {
-    slug: "portfolio",
-    name: "This Portfolio",
-    status: "shipped",
-    period: "2025 – Present",
-    kind: "Personal Project",
-    stack: ["Next.js", "TypeScript", "React", "Vercel"],
-    summary:
-      "The site you're reading — a responsive portfolio built with Next.js and TypeScript, deployed on Vercel with automated deployments from GitHub.",
-    points: [
-      "Statically generated, zero client-side framework overhead beyond React itself.",
-      "Designed and iterated with an agentic coding workflow (Claude Code), with every claim reviewed against the resume.",
-    ],
-    links: [
-      {
-        href: "https://github.com/FriedNood1es/portfolio",
-        label: "View source",
-      },
-    ],
-    selfPreview: true,
-    hue: 32,
-  },
-  {
     slug: "kanbo",
     name: "Kanbo",
     status: "shipped",
@@ -205,6 +183,28 @@ export const projects: Project[] = [
     ],
     images: ["/projects/kanbo_1.png", "/projects/kanbo_2.png", "/projects/kanbo_3.png"],
     hue: 265,
+  },
+  {
+    slug: "portfolio",
+    name: "This Portfolio",
+    status: "shipped",
+    period: "2025 – Present",
+    kind: "Personal Project",
+    stack: ["Next.js", "TypeScript", "React", "Vercel"],
+    summary:
+      "The site you're reading — a responsive portfolio built with Next.js and TypeScript, deployed on Vercel with automated deployments from GitHub.",
+    points: [
+      "Statically generated, zero client-side framework overhead beyond React itself.",
+      "Designed and iterated with an agentic coding workflow (Claude Code), with every claim reviewed against the resume.",
+    ],
+    links: [
+      {
+        href: "https://github.com/FriedNood1es/portfolio",
+        label: "View source",
+      },
+    ],
+    selfPreview: true,
+    hue: 32,
   },
 ];
 
