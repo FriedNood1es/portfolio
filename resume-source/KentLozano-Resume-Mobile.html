@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<title>Kent Lozano — Resume</title>
+<title>Kent Lozano — Mobile Developer Resume</title>
 <style>
   @page { size: Letter; margin: 0.55in 0.65in; }
   * { box-sizing: border-box; }
@@ -17,6 +17,13 @@
     text-align: center;
     font-size: 17pt;
     letter-spacing: 0.5px;
+    margin: 0 0 2px 0;
+  }
+  .role {
+    text-align: center;
+    font-size: 10.5pt;
+    letter-spacing: 1px;
+    text-transform: uppercase;
     margin: 0 0 4px 0;
   }
   .contact {
@@ -61,6 +68,7 @@
 <body>
 
   <h1>KENT LOZANO</h1>
+  <div class="role">Junior Mobile Developer</div>
   <div class="contact">
     Davao City, Philippines | +63 966 637 0287 | kentlozano45@gmail.com | kent-lozano.vercel.app |
     github.com/FriedNood1es | linkedin.com/in/kntlzn
@@ -68,26 +76,25 @@
 
   <h2>Summary</h2>
   <p class="summary">
-    Information Technology graduate specializing in cross-platform mobile development with <b>Flutter</b>
-    and modern web development with <b>TypeScript, React, and Next.js</b>, including full-stack applications
-    with <b>Prisma</b> and <b>PostgreSQL</b>. Built and defended bastaFDA, a medicine-verification mobile
-    application integrating <b>TensorFlow Lite</b> image classification, OCR, and FDA registration data.
-    Experienced in <b>agentic coding workflows (Claude Code, GitHub Copilot)</b>, using AI agents to accelerate
-    development while reviewing and validating the code they generate. QA internship
-    experience testing a Laravel-based academic analytics system, from test-case design to data validation.
-    Seeking an <b>entry-level Software Developer role — web, full-stack, or mobile</b>.
+    Entry-level mobile developer specializing in cross-platform application development with <b>Flutter</b> and
+    <b>Dart</b>, including on-device AI. Built and defended <b>bastaFDA</b>, a medicine-verification application
+    integrating <b>TensorFlow Lite</b> image classification, OCR, and official FDA registration data. BS in
+    Information Technology graduate with additional full-stack web experience (<b>Next.js, TypeScript, Prisma,
+    PostgreSQL</b>) and a manual QA internship on a Laravel-based academic analytics system. Seeking a
+    <b>Junior Mobile Developer, Junior Flutter Developer, Mobile Developer, or Entry-level Software Developer</b>
+    role.
   </p>
 
   <h2>Technical Skills</h2>
   <ul>
-    <li class="skills-row"><b>Programming Languages:</b> TypeScript, JavaScript (ES6+), Dart, Python, Java</li>
-    <li class="skills-row"><b>Mobile &amp; Web:</b> Flutter, React.js, Next.js, Native Android, HTML5, CSS3, Responsive Design, @dnd-kit</li>
+    <li class="skills-row"><b>Mobile:</b> Flutter, Dart, Native Android, Java, Mobile Application Development, Responsive Design</li>
     <li class="skills-row"><b>AI &amp; Machine Learning:</b> TensorFlow Lite, OCR integration, on-device model deployment</li>
-    <li class="skills-row"><b>AI-Assisted Development:</b> Agentic coding with Claude Code and GitHub Copilot, prompt engineering, AI code review and validation</li>
-    <li class="skills-row"><b>Backend &amp; Databases:</b> Firebase (Auth, Firestore), PostgreSQL, MySQL, SQL, Prisma ORM, Auth.js, RESTful APIs</li>
+    <li class="skills-row"><b>Backend &amp; Cloud:</b> Firebase (Auth, Firestore), RESTful APIs</li>
+    <li class="skills-row"><b>Web:</b> TypeScript, JavaScript (ES6+), React.js, Next.js, HTML5, CSS3</li>
+    <li class="skills-row"><b>Databases:</b> PostgreSQL, MySQL, SQL, Prisma ORM</li>
+    <li class="skills-row"><b>DevOps &amp; Tooling:</b> Android Studio, Git, GitHub, VS Code, Vercel</li>
     <li class="skills-row"><b>Testing &amp; QA:</b> Test Case Design, Manual &amp; Functional Testing, Data Validation, User Acceptance Testing, Bug Reporting</li>
-    <li class="skills-row"><b>DevOps &amp; Tooling:</b> Git, GitHub, Vercel, Android Studio, VS Code, Debugging &amp; Testing Workflows</li>
-    <li class="skills-row"><b>Design:</b> UI/UX Prototyping, Adobe Photoshop, Canva</li>
+    <li class="skills-row"><b>AI-Assisted Development:</b> Claude Code, GitHub Copilot</li>
   </ul>
 
   <h2>Key Projects</h2>
@@ -99,17 +106,15 @@
     <li>Trained and integrated a <b>TensorFlow Lite image-classification model</b> to identify supported medicine products on-device from a curated image dataset.</li>
     <li>Engineered a <b>multi-scan OCR workflow</b> that aggregates results across multiple captures, improving text-extraction accuracy on low-quality medicine packaging.</li>
     <li>Implemented the full product flow (scanning, verification, history, reporting) with <b>Firebase</b> authentication and real-time data.</li>
-    <li>Leveraged <b>agentic coding tools (Claude Code, GitHub Copilot)</b> for scaffolding, refactoring, and test iteration, reviewing and validating all generated code against project requirements.</li>
     <li>Successfully defended the capstone before a faculty panel.</li>
   </ul>
 
   <div class="entry-head"><span>Kanbo — Job-Search Kanban Tracker</span><span>2026</span></div>
   <div class="entry-sub"><span>Personal Project — full-stack — kanbo-two.vercel.app</span><span>Next.js + TypeScript + Prisma + PostgreSQL + Auth.js</span></div>
   <ul>
-    <li>Built a drag-and-drop Kanban board with <b>@dnd-kit</b> and fractional-position reordering, so moving a card only ever rewrites that one row, never its neighbors.</li>
-    <li>Implemented <b>Auth.js v5</b> with database-backed sessions and GitHub/Google OAuth, enforcing per-user data access on every server action rather than trusting the client.</li>
-    <li>Built a funnel/conversion stats page computed from real stage-transition history, with CSV export, stale-application flagging, and a full dark-mode palette.</li>
-    <li>Leveraged an <b>agentic coding workflow (Claude Code)</b> to iterate feature-by-feature, testing each change against the live app before shipping.</li>
+    <li>Built a full-stack application with <b>Next.js</b>, <b>TypeScript</b>, <b>Prisma</b>, and <b>PostgreSQL</b>, including a drag-and-drop Kanban board with <b>@dnd-kit</b>.</li>
+    <li>Integrated <b>Auth.js v5</b> with GitHub/Google OAuth and database-backed sessions, enforcing per-user data access on every Server Action.</li>
+    <li>Built a funnel/conversion analytics page from real stage-transition history, with a full dark-mode palette and CSV export served through a REST API endpoint (<b>/api/export</b>).</li>
   </ul>
 
   <div class="entry-head"><span>Personal Portfolio Website — kent-lozano.vercel.app</span><span>2025 – Present</span></div>
@@ -120,21 +125,19 @@
 
   <h2>Work Experience</h2>
 
+  <div class="entry-head"><span>HOLY CROSS OF DAVAO COLLEGE</span><span>Davao City, Philippines</span></div>
+  <div class="entry-sub"><span>QA Intern, Developer Track — Academic Intervention System (Laravel)</span><span>2026</span></div>
+  <ul>
+    <li>Performed manual QA on an academic intervention system that monitors per-course and per-professor grade trends.</li>
+    <li>Designed and executed test cases across the system's grade-checking, analytics, and reporting features, verifying data accuracy against source academic records.</li>
+    <li>Localized reported defects in the Laravel codebase to root causes and supported user acceptance testing with academic stakeholders.</li>
+  </ul>
+
   <div class="entry-head"><span>CHAT MODERATOR</span><span>Remote</span></div>
   <div class="entry-sub"><span>Content Moderation</span><span>2024 – 2025</span></div>
   <ul>
     <li>Reviewed high volumes of user-generated content against platform guidelines, maintaining accuracy under strict turnaround times.</li>
     <li>Resolved escalated user concerns professionally in a fast-paced, metrics-driven environment.</li>
-  </ul>
-
-  <div class="entry-head"><span>HOLY CROSS OF DAVAO COLLEGE</span><span>Davao City, Philippines</span></div>
-  <div class="entry-sub"><span>QA Intern, Developer Track — Academic Intervention System (Laravel)</span><span>2026</span></div>
-  <ul>
-    <li>Performed QA on an academic intervention system for the Office of the VP for Academic Affairs that monitors per-course and per-professor grade trends, identifying factors behind rising and falling pass/fail rates.</li>
-    <li>Designed and executed test cases across the system's grade-checking, analytics, and reporting features.</li>
-    <li>Verified data accuracy of grade computations and pass/fail statistics against source academic records.</li>
-    <li>Traced reported defects into the Laravel codebase to localize root causes and propose fixes to the development team.</li>
-    <li>Contributed to domain modeling and assisted developers during feature implementation; supported user acceptance testing with academic stakeholders.</li>
   </ul>
 
   <h2>Education</h2>

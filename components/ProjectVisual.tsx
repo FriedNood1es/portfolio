@@ -1,7 +1,13 @@
 ﻿"use client";
 
 import Image from "next/image";
-import { useEffect, useMemo, useRef, useState } from "react";
+import {
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  useSyncExternalStore,
+} from "react";
 import { createPortal } from "react-dom";
 import type { Project } from "@/lib/content";
 
@@ -19,7 +25,11 @@ const statusText: Record<Project["status"], { text: string; tone: string }> = {
 export default function ProjectVisual({ project }: { project: Project }) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isMounted, setIsMounted] = useState(false);
+  const isMounted = useSyncExternalStore(
+    () => () => {},
+    () => true,
+    () => false
+  );
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
   const isMobileAspect = !!project.mobileAspect;
@@ -35,10 +45,6 @@ export default function ProjectVisual({ project }: { project: Project }) {
   }, [project.images, project.image]);
 
   const currentImage = images[currentImageIndex];
-
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
 
   useEffect(() => {
     if (!isModalOpen) {

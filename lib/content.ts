@@ -12,7 +12,7 @@ export const identity = {
   githubHandle: "FriedNood1es",
   linkedin: "https://www.linkedin.com/in/kntlzn/",
   linkedinHandle: "kntlzn",
-  resume: "/resume/KentLozano-Resume.pdf",
+  resume: "/resume/KentLozano-Resume-Web.pdf",
   site: "kent-lozano.vercel.app",
   degree:
     "BS Information Technology, Holy Cross of Davao College (2020–2026)",
@@ -24,12 +24,11 @@ export const about = [
    React, and Next.js. I built and defended bastaFDA, a medicine-verification
    mobile app that combines TensorFlow Lite image classification, OCR, and
    FDA registration data.`,
-  `I practice agentic coding — developing with AI agents like Claude Code and
-   GitHub Copilot to accelerate the work while keeping full command of the
-   architecture, data flow, and debugging. On the QA side, I've tested a
-   Laravel-based academic analytics system end to end, from test-case design
-   to data validation.`,
-  `Currently seeking a Junior Software Developer or Mobile Developer role.`,
+  `I've worked as a QA intern on a Laravel-based academic analytics system,
+   from test-case design to data validation. I also build with agentic coding
+   assistants (Claude Code, GitHub Copilot), reviewing and validating the code
+   they generate as I ship features.`,
+  `Currently seeking an entry-level Software Developer role — web, full-stack, or mobile.`,
 ];
 
 export type SkillGroup = { label: string; icon: string; items: string[] };
@@ -74,7 +73,7 @@ export const skills: SkillGroup[] = [
   {
     label: "Backend & Databases",
     icon: "database",
-    items: ["Firebase (Auth, Firestore)", "MySQL", "SQL", "RESTful APIs"],
+    items: ["Firebase (Auth, Firestore)", "PostgreSQL", "MySQL", "SQL", "Prisma ORM", "Auth.js", "RESTful APIs"],
   },
   {
     label: "Testing & QA",
@@ -174,7 +173,7 @@ export const projects: Project[] = [
     points: [
       "Built the Kanban board on @dnd-kit/react with fractional-position reordering, so dragging a card only ever rewrites that one row, never its neighbors.",
       "Wired up Auth.js v5 with database-backed sessions and both GitHub and Google OAuth, enforcing per-user data access on every Server Action rather than trusting the client.",
-      "Added a funnel/conversion stats page computed from real stage-transition history, CSV export, stale-application flagging, and a full dark-mode palette rather than a generic color inversion.",
+      "Added a funnel/conversion stats page computed from real stage-transition history, CSV export served through a REST API endpoint (`/api/export`), stale-application flagging, and a full dark-mode palette rather than a generic color inversion.",
       "Iterated feature-by-feature with an agentic coding workflow (Claude Code), testing each change against the live app before shipping.",
     ],
     links: [

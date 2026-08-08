@@ -1,10 +1,10 @@
 # Kent Lozano — Portfolio
 
-Revamp of [kent-lozano.vercel.app](https://kent-lozano.vercel.app), built with Next.js + TypeScript + Tailwind. Local-only for now — no remote, no Vercel link — until it's ready to publish.
+Revamp of [kent-lozano.vercel.app](https://kent-lozano.vercel.app), built with Next.js + TypeScript + Tailwind. Deployed to Vercel.
 
 ## Rules of this repo
 
-- Every claim on the site mirrors `../KentLozano-Resume.html` (the source of truth). See `../CONTEXT.md` for the campaign glossary — notably: **bastaFDA has no database**, and unshipped projects (GamotCheck, ModQueue) must stay labeled "In progress"/"Planned".
+- Every claim on the site mirrors `resume-source/KentLozano-Resume.html` (the source of truth). Notably: **bastaFDA has no database**. Projects shown: bastaFDA, Kanbo, This Portfolio.
 - All content lives in `lib/content.ts`. Edit claims there, nowhere else.
 - Project screenshots: drop 16:10 images in `public/projects/` and set `image` on the project in `lib/content.ts` — placeholder panels render until then (see `public/projects/README.md`).
 

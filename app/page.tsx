@@ -65,7 +65,7 @@ export default function Home() {
             >
               <p className="out-line">{identity.degree}</p>
               <p className="out-line">
-                {identity.location} · open to junior roles, on-site or remote
+                {identity.location} · open to entry-level roles, on-site or remote
               </p>
               <p className="out-line">
                 builds practical software — from a medicine-verification app
@@ -307,11 +307,11 @@ export default function Home() {
         <section id="contact" className="reveal border-t border-line py-20">
           <PromptHeading cmd="kent --contact" />
           <p className="display max-w-[30ch] text-2xl font-bold leading-snug text-ink sm:text-3xl">
-            Looking for a junior developer who ships?
+            Looking for an entry-level developer who ships?
           </p>
           <p className="mt-4 max-w-[55ch] text-[0.95rem] leading-[1.8] text-ink-dim">
-            Open to Junior Software Developer and Mobile Developer roles —
-            on-site in Davao or remote.
+            Open to entry-level Software Developer roles — web, full-stack, or
+            mobile — on-site in Davao or remote.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <a

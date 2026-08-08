@@ -6,11 +6,11 @@ brand
 
 ## Users
 
-Recruiters, hiring managers, and technical interviewers screening Kent Lozano for Junior Software Developer / Mobile Developer roles (Davao City or remote). They arrive from a resume or LinkedIn link, spend under two minutes, and decide whether to shortlist. A secondary reader is the technical interviewer who opens the site during an interview and clicks through to repos.
+Recruiters, hiring managers, and technical interviewers screening Kent Lozano for entry-level Software Developer roles (Davao City or remote). They arrive from a resume or LinkedIn link, spend under two minutes, and decide whether to shortlist. A secondary reader is the technical interviewer who opens the site during an interview and clicks through to repos.
 
 ## Product Purpose
 
-The portfolio is the live proof behind the resume: it makes the "Next.js + TypeScript" claim true by existing, and it shows the projects (bastaFDA, GamotCheck, ModQueue) with honest status labels. Success = a recruiter shortlists; an interviewer finds nothing they can't verify.
+The portfolio is the live proof behind the resume: it makes the "Next.js + TypeScript" claim true by existing, and it shows the projects (bastaFDA, Kanbo, This Portfolio) with honest status labels. Success = a recruiter shortlists; an interviewer finds nothing they can't verify.
 
 ## Brand Personality
 
@@ -20,7 +20,7 @@ Precise, technical, honest. The site reads as a beautifully-typeset terminal ses
 
 - Generic AI-template portfolio (dark Inter + purple gradients + identical card grids).
 - Matrix-green hacker cosplay; CRT gimmickry that hurts readability.
-- Any claim Kent cannot defend live (see ../CONTEXT.md — Defensible Claim is the admission test; bastaFDA has no database; unshipped work stays labeled in-progress/planned).
+- Any claim Kent cannot defend live (the Defensible Claim admission test; bastaFDA has no database; unshipped work stays labeled in-progress/planned).
 
 ## Design Principles
 
