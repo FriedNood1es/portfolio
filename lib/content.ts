@@ -222,22 +222,12 @@ export const experience: Experience[] = [
     role: "QA Intern, Developer Track",
     detail: "Academic Intervention System (Laravel)",
     location: "Davao City, Philippines",
-    period: "2026",
+    period: "Feb – May 2026",
     points: [
       "Performed QA on an academic intervention system for the Office of the VP for Academic Affairs that monitors per-course and per-professor grade trends behind pass/fail rates.",
       "Designed and executed test cases across grade-checking, analytics, and reporting features; verified grade computations against source academic records.",
       "Traced reported defects into the Laravel codebase to localize root causes and propose fixes to the development team.",
       "Contributed to domain modeling and assisted developers during feature implementation; supported user acceptance testing with academic stakeholders.",
-    ],
-  },
-  {
-    org: "Content Moderation (Remote)",
-    role: "Chat Moderator",
-    location: "Remote",
-    period: "2024 – 2025",
-    points: [
-      "Reviewed high volumes of user-generated content against platform guidelines, maintaining accuracy under strict turnaround times.",
-      "Resolved escalated user concerns professionally in a fast-paced, metrics-driven environment.",
     ],
   },
 ];
