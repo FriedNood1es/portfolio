@@ -87,7 +87,7 @@ export default function Home() {
             >
               <a
                 href="#projects"
-                className="rounded-sm bg-accent px-4 py-2 text-sm font-bold text-bg transition-colors duration-150 hover:bg-accent-deep"
+                className="flex min-h-[44px] items-center rounded-sm bg-accent px-4 py-2 text-sm font-bold text-bg transition-colors duration-150 hover:bg-accent-deep focus-visible:bg-accent-deep"
               >
                 ls projects/
               </a>
@@ -95,7 +95,7 @@ export default function Home() {
                 href={identity.resume}
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center gap-2 rounded-sm border border-accent px-4 py-2 text-sm font-bold text-accent transition-colors duration-150 hover:bg-accent hover:text-bg"
+                className="flex min-h-[44px] items-center gap-2 rounded-sm border border-accent px-4 py-2 text-sm font-bold text-accent transition-colors duration-150 hover:bg-accent hover:text-bg focus-visible:bg-accent focus-visible:text-bg"
               >
                 <Icon name="download" />
                 resume.pdf
@@ -104,7 +104,7 @@ export default function Home() {
                 href={identity.github}
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center gap-2 rounded-sm border border-line px-4 py-2 text-sm text-ink transition-colors duration-150 hover:border-accent hover:text-accent"
+                className="flex min-h-[44px] items-center gap-2 rounded-sm border border-line px-4 py-2 text-sm text-ink transition-colors duration-150 hover:border-accent hover:text-accent focus-visible:border-accent focus-visible:text-accent"
               >
                 <Icon name="github" />
                 {identity.githubHandle}
@@ -113,7 +113,7 @@ export default function Home() {
                 href={identity.linkedin}
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center gap-2 rounded-sm border border-line px-4 py-2 text-sm text-ink transition-colors duration-150 hover:border-accent hover:text-accent"
+                className="flex min-h-[44px] items-center gap-2 rounded-sm border border-line px-4 py-2 text-sm text-ink transition-colors duration-150 hover:border-accent hover:text-accent focus-visible:border-accent focus-visible:text-accent"
               >
                 <Icon name="linkedin" />
                 in/{identity.linkedinHandle}
@@ -123,7 +123,7 @@ export default function Home() {
         </div>
       </section>
 
-      <main className="mx-auto max-w-4xl px-5 sm:px-8">
+      <main id="main" className="mx-auto max-w-4xl px-5 sm:px-8">
         {/* ————— About ————— */}
         <section id="about" className="reveal border-t border-line py-16">
           <PromptHeading cmd="cat about.txt" />
@@ -316,7 +316,7 @@ export default function Home() {
           <div className="mt-8 flex flex-wrap gap-3">
             <a
               href={`mailto:${identity.email}`}
-              className="flex items-center gap-2 rounded-sm bg-accent px-5 py-2.5 text-sm font-bold text-bg transition-colors duration-150 hover:bg-accent-deep"
+              className="flex min-h-[44px] items-center gap-2 rounded-sm bg-accent px-5 py-2.5 text-sm font-bold text-bg transition-colors duration-150 hover:bg-accent-deep focus-visible:bg-accent-deep"
             >
               <Icon name="mail" />
               {identity.email}
@@ -325,7 +325,7 @@ export default function Home() {
               href={identity.github}
               target="_blank"
               rel="noreferrer"
-              className="flex items-center gap-2 rounded-sm border border-line px-5 py-2.5 text-sm text-ink transition-colors duration-150 hover:border-accent hover:text-accent"
+              className="flex min-h-[44px] items-center gap-2 rounded-sm border border-line px-5 py-2.5 text-sm text-ink transition-colors duration-150 hover:border-accent hover:text-accent focus-visible:border-accent focus-visible:text-accent"
             >
               <Icon name="github" />
               github
@@ -334,7 +334,7 @@ export default function Home() {
               href={identity.linkedin}
               target="_blank"
               rel="noreferrer"
-              className="flex items-center gap-2 rounded-sm border border-line px-5 py-2.5 text-sm text-ink transition-colors duration-150 hover:border-accent hover:text-accent"
+              className="flex min-h-[44px] items-center gap-2 rounded-sm border border-line px-5 py-2.5 text-sm text-ink transition-colors duration-150 hover:border-accent hover:text-accent focus-visible:border-accent focus-visible:text-accent"
             >
               <Icon name="linkedin" />
               linkedin

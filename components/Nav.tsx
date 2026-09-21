@@ -17,7 +17,10 @@ export default function Nav() {
   return (
     <header className="sticky top-0 z-40 border-b border-line bg-bg/90 backdrop-blur-sm">
       <div className="mx-auto flex max-w-4xl items-center justify-between px-5 py-3 sm:px-8">
-        <a href="#top" className="text-sm font-bold text-ink">
+        <a
+          href="#top"
+          className="flex min-h-[44px] items-center text-sm font-bold text-ink"
+        >
           <span className="text-accent">~</span>/kent-lozano
         </a>
 
@@ -26,7 +29,7 @@ export default function Nav() {
             <a
               key={l.href}
               href={l.href}
-              className="text-sm text-ink-dim transition-colors duration-150 hover:text-accent"
+              className="flex min-h-[44px] items-center text-sm text-ink-dim transition-colors duration-150 hover:text-accent focus-visible:text-accent"
             >
               ./{l.label}
             </a>
@@ -35,7 +38,7 @@ export default function Nav() {
 
         <button
           type="button"
-          className="text-xs uppercase tracking-widest text-ink sm:hidden"
+          className="flex min-h-[44px] min-w-[44px] items-center justify-center text-xs uppercase tracking-widest text-ink sm:hidden"
           aria-expanded={open}
           aria-controls="mobile-nav"
           onClick={() => setOpen(!open)}
@@ -54,7 +57,7 @@ export default function Nav() {
             <a
               key={l.href}
               href={l.href}
-              className="border-b border-line py-3 text-sm text-ink-dim last:border-0"
+              className="flex min-h-[44px] items-center border-b border-line text-sm text-ink-dim last:border-0"
               onClick={() => setOpen(false)}
             >
               ./{l.label}

@@ -103,6 +103,28 @@ const paths: Record<string, React.ReactNode> = {
       <path d="M5 21h14" />
     </>
   ),
+  close: (
+    <>
+      <path d="M6 6l12 12" />
+      <path d="M18 6L6 18" />
+    </>
+  ),
+  "chev-left": (
+    <>
+      <path d="m14 6-6 6 6 6" />
+    </>
+  ),
+  "chev-right": (
+    <>
+      <path d="m10 6 6 6-6 6" />
+    </>
+  ),
+  expand: (
+    <>
+      <path d="M10 6H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-4" />
+      <path d="M14 4h6m0 0v6m0-6L10 14" />
+    </>
+  ),
 };
 
 export default function Icon({

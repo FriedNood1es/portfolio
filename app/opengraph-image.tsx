@@ -13,7 +13,7 @@ const colors = {
   bgRaised: "#151b23",
   ink: "#dbe4ee",
   inkDim: "#94a2b3",
-  inkFaint: "#5b6673",
+  inkFaint: "#7d8b9c",
   accent: "#6cc7e6",
   ok: "#7ee2a8",
   warn: "#e6b566",

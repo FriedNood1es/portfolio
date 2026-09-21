@@ -10,6 +10,7 @@ import {
 } from "react";
 import { createPortal } from "react-dom";
 import type { Project } from "@/lib/content";
+import Icon from "@/components/Icons";
 
 const statusText: Record<Project["status"], { text: string; tone: string }> = {
   shipped: { text: "[shipped]", tone: "text-ok" },
@@ -107,7 +108,7 @@ export default function ProjectVisual({ project }: { project: Project }) {
     const modal =
       isModalOpen && currentImage ? (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center overflow-hidden bg-black/95 p-3 sm:p-4"
+          className="fixed inset-0 z-50 flex items-center justify-center overflow-hidden bg-bg-inset/95 p-3 sm:p-4"
           onClick={() => setIsModalOpen(false)}
           role="dialog"
           aria-modal="true"
@@ -120,7 +121,7 @@ export default function ProjectVisual({ project }: { project: Project }) {
             onTouchEnd={handleTouchEnd}
           >
             <div
-              className={`relative overflow-hidden rounded-sm bg-black ${
+              className={`relative overflow-hidden rounded-sm bg-bg-inset ${
                 isMobileAspect
                   ? "aspect-[9/20] max-h-[calc(100dvh-4.5rem)] max-w-[calc(100vw-1.5rem)] sm:max-h-[calc(100dvh-5rem)] sm:max-w-[420px]"
                   : "aspect-[16/10] max-h-[calc(100dvh-4.5rem)] max-w-[calc(100vw-1.5rem)] sm:max-h-[calc(100dvh-5rem)] sm:max-w-[960px]"
@@ -145,10 +146,10 @@ export default function ProjectVisual({ project }: { project: Project }) {
             <button
               type="button"
               onClick={() => setIsModalOpen(false)}
-              className="absolute right-3 top-3 z-20 flex h-9 w-9 items-center justify-center rounded-sm bg-black/70 text-lg leading-none text-white transition-colors hover:bg-black"
+              className="absolute right-3 top-3 z-20 flex h-11 w-11 items-center justify-center rounded-sm bg-bg-raised/80 text-ink transition-colors hover:bg-bg-raised"
               aria-label="Close screenshots"
             >
-              x
+              <Icon name="close" className="h-5 w-5" />
             </button>
 
             {images.length > 1 && (
@@ -156,31 +157,39 @@ export default function ProjectVisual({ project }: { project: Project }) {
                 <button
                   type="button"
                   onClick={goToPreviousImage}
-                  className="absolute left-3 top-1/2 z-20 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-sm bg-black/70 text-2xl leading-none text-white transition-colors hover:bg-black"
+                  className="absolute left-3 top-1/2 z-20 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-sm bg-bg-raised/80 text-ink transition-colors hover:bg-bg-raised"
                   aria-label="Previous image"
                 >
-                  {"<"}
+                  <Icon name="chev-left" className="h-5 w-5" />
                 </button>
                 <button
                   type="button"
                   onClick={goToNextImage}
-                  className="absolute right-3 top-1/2 z-20 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-sm bg-black/70 text-2xl leading-none text-white transition-colors hover:bg-black"
+                  className="absolute right-3 top-1/2 z-20 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-sm bg-bg-raised/80 text-ink transition-colors hover:bg-bg-raised"
                   aria-label="Next image"
                 >
-                  {">"}
+                  <Icon name="chev-right" className="h-5 w-5" />
                 </button>
 
-                <div className="absolute bottom-3 left-1/2 z-20 flex -translate-x-1/2 gap-2">
+                <div className="absolute bottom-3 left-1/2 z-20 flex -translate-x-1/2 gap-0.5">
                   {images.map((_, idx) => (
                     <button
                       key={idx}
                       type="button"
                       onClick={() => setCurrentImageIndex(idx)}
-                      className={`h-2.5 w-2.5 rounded-full transition-all hover:scale-125 ${
-                        idx === currentImageIndex ? "bg-white" : "bg-gray-500"
-                      }`}
+                      className="flex h-11 w-11 items-center justify-center"
                       aria-label={`Go to image ${idx + 1}`}
-                    />
+                      aria-current={idx === currentImageIndex}
+                    >
+                      <span
+                        aria-hidden="true"
+                        className={`h-2.5 w-2.5 rounded-full transition-all ${
+                          idx === currentImageIndex
+                            ? "bg-ink"
+                            : "bg-ink-faint"
+                        }`}
+                      />
+                    </button>
                   ))}
                 </div>
               </>
@@ -192,19 +201,9 @@ export default function ProjectVisual({ project }: { project: Project }) {
     return (
       <>
         <div
-          className="group relative flex aspect-[16/10] w-full cursor-pointer items-center justify-center overflow-hidden rounded-sm border border-line bg-black transition-opacity hover:opacity-90"
-          onClick={() => setIsModalOpen(true)}
+          className="group relative flex aspect-[16/10] w-full items-center justify-center overflow-hidden rounded-sm border border-line bg-bg-inset"
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
-          role="button"
-          tabIndex={0}
-          aria-label={`Open ${project.name} screenshots`}
-          onKeyDown={(e) => {
-            if (e.key === "Enter" || e.key === " ") {
-              e.preventDefault();
-              setIsModalOpen(true);
-            }
-          }}
         >
           <Image
             src={currentImage}
@@ -216,71 +215,62 @@ export default function ProjectVisual({ project }: { project: Project }) {
             priority={isMobileAspect}
           />
 
-          <div className="absolute inset-0 flex items-center justify-center bg-black/0 transition-colors duration-300 group-hover:bg-black/40">
-            <div className="flex flex-col items-center gap-2 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-              <svg
-                className="h-10 w-10 text-white"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                />
-              </svg>
-              <span className="text-sm font-medium text-white">
+          <button
+            type="button"
+            onClick={() => setIsModalOpen(true)}
+            aria-label={`Open ${project.name} screenshots`}
+            className="absolute inset-0 z-0 flex items-center justify-center bg-bg-inset/0 transition-colors duration-300 hover:bg-bg-inset/40"
+          >
+            <span className="flex flex-col items-center gap-2 opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-within:opacity-100">
+              <Icon name="expand" className="h-10 w-10 text-ink" />
+              <span className="text-sm font-medium text-ink">
                 Click to expand
               </span>
-            </div>
-          </div>
+            </span>
+          </button>
 
           {images.length > 1 && (
             <>
               <button
                 type="button"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  goToPreviousImage();
-                }}
-                className="absolute left-2 top-1/2 z-10 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-sm bg-black/65 text-lg leading-none text-white opacity-0 transition-opacity hover:bg-black/80 group-hover:opacity-100"
+                onClick={goToPreviousImage}
+                className="absolute left-2 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-sm bg-bg-raised/80 text-ink opacity-0 transition-opacity hover:bg-bg-raised group-hover:opacity-100 group-focus-within:opacity-100"
                 aria-label="Previous preview image"
               >
-                {"<"}
+                <Icon name="chev-left" className="h-5 w-5" />
               </button>
               <button
                 type="button"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  goToNextImage();
-                }}
-                className="absolute right-2 top-1/2 z-10 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-sm bg-black/65 text-lg leading-none text-white opacity-0 transition-opacity hover:bg-black/80 group-hover:opacity-100"
+                onClick={goToNextImage}
+                className="absolute right-2 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-sm bg-bg-raised/80 text-ink opacity-0 transition-opacity hover:bg-bg-raised group-hover:opacity-100 group-focus-within:opacity-100"
                 aria-label="Next preview image"
               >
-                {">"}
+                <Icon name="chev-right" className="h-5 w-5" />
               </button>
 
-              <div className="absolute right-3 top-3 rounded-sm bg-black/70 px-2 py-1 font-mono text-xs text-white">
+              <div className="absolute right-3 top-3 rounded-sm bg-bg-raised/80 px-2 py-1 font-mono text-xs text-ink">
                 {currentImageIndex + 1} / {images.length}
               </div>
 
-              <div className="absolute bottom-3 left-1/2 z-10 flex -translate-x-1/2 gap-2">
+              <div className="absolute bottom-3 left-1/2 z-10 flex -translate-x-1/2 gap-0.5">
                 {images.map((_, idx) => (
                   <button
                     key={idx}
                     type="button"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      setCurrentImageIndex(idx);
-                    }}
-                    className={`h-2 w-2 rounded-full transition-all hover:scale-125 ${
-                      idx === currentImageIndex ? "bg-white" : "bg-gray-500"
-                    }`}
+                    onClick={() => setCurrentImageIndex(idx)}
+                    className="flex h-11 w-11 items-center justify-center"
                     aria-label={`Show preview image ${idx + 1}`}
-                  />
+                    aria-current={idx === currentImageIndex}
+                  >
+                    <span
+                      aria-hidden="true"
+                      className={`h-2 w-2 rounded-full ${
+                        idx === currentImageIndex
+                          ? "bg-ink"
+                          : "bg-ink-faint"
+                      }`}
+                    />
+                  </button>
                 ))}
               </div>
             </>
@@ -299,7 +289,7 @@ export default function ProjectVisual({ project }: { project: Project }) {
       <a
         href="#top"
         aria-label="This site is the live preview â€” jump back to the top"
-        className="group flex aspect-[16/10] flex-col overflow-hidden rounded-sm border border-line bg-bg-inset transition-colors hover:border-accent"
+        className="group flex aspect-[16/10] flex-col overflow-hidden rounded-sm border border-line bg-bg-inset transition-colors hover:border-accent focus-visible:border-accent"
       >
         <div className="flex items-center justify-between border-b border-line bg-bg-raised px-3 py-1.5 text-[0.65rem] text-ink-faint">
           <span>{project.slug}.png</span>
