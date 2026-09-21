@@ -33,6 +33,9 @@ export default function ProjectVisual({ project }: { project: Project }) {
   );
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
+  const openButtonRef = useRef<HTMLButtonElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const dialogRef = useRef<HTMLDivElement>(null);
   const isMobileAspect = !!project.mobileAspect;
 
   const images = useMemo(() => {
@@ -52,9 +55,40 @@ export default function ProjectVisual({ project }: { project: Project }) {
       return;
     }
 
+    const opener = openButtonRef.current;
+    closeButtonRef.current?.focus();
+
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         setIsModalOpen(false);
+        return;
+      }
+      if (event.key === "ArrowLeft") {
+        goToPreviousImage();
+        return;
+      }
+      if (event.key === "ArrowRight") {
+        goToNextImage();
+        return;
+      }
+      // Trap Tab inside the dialog.
+      if (event.key !== "Tab" || !dialogRef.current) {
+        return;
+      }
+      const focusables = dialogRef.current.querySelectorAll<HTMLElement>(
+        'button, [href], [tabindex]:not([tabindex="-1"])'
+      );
+      if (focusables.length === 0) {
+        return;
+      }
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
       }
     };
 
@@ -65,6 +99,7 @@ export default function ProjectVisual({ project }: { project: Project }) {
     return () => {
       document.body.style.overflow = originalOverflow;
       window.removeEventListener("keydown", handleKeyDown);
+      opener?.focus();
     };
   }, [isModalOpen]);
 
@@ -108,6 +143,7 @@ export default function ProjectVisual({ project }: { project: Project }) {
     const modal =
       isModalOpen && currentImage ? (
         <div
+          ref={dialogRef}
           className="fixed inset-0 z-50 flex items-center justify-center overflow-hidden bg-bg-inset/95 p-3 sm:p-4"
           onClick={() => setIsModalOpen(false)}
           role="dialog"
@@ -139,11 +175,11 @@ export default function ProjectVisual({ project }: { project: Project }) {
                 height={isMobileAspect ? 2400 : 1000}
                 sizes={isMobileAspect ? "420px" : "960px"}
                 className="h-full w-full object-contain"
-                priority
               />
             </div>
 
             <button
+              ref={closeButtonRef}
               type="button"
               onClick={() => setIsModalOpen(false)}
               className="absolute right-3 top-3 z-20 flex h-11 w-11 items-center justify-center rounded-sm bg-bg-raised/80 text-ink transition-colors hover:bg-bg-raised"
@@ -212,10 +248,10 @@ export default function ProjectVisual({ project }: { project: Project }) {
             height={isMobileAspect ? 2400 : 1000}
             sizes="(min-width: 640px) 320px, calc(100vw - 40px)"
             className={`h-full w-full object-contain ${isMobileAspect ? "p-3" : ""}`}
-            priority={isMobileAspect}
           />
 
           <button
+            ref={openButtonRef}
             type="button"
             onClick={() => setIsModalOpen(true)}
             aria-label={`Open ${project.name} screenshots`}
@@ -234,7 +270,7 @@ export default function ProjectVisual({ project }: { project: Project }) {
               <button
                 type="button"
                 onClick={goToPreviousImage}
-                className="absolute left-2 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-sm bg-bg-raised/80 text-ink opacity-0 transition-opacity hover:bg-bg-raised group-hover:opacity-100 group-focus-within:opacity-100"
+                className="absolute left-2 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-sm bg-bg-raised/80 text-ink opacity-0 transition-opacity hover:bg-bg-raised group-hover:opacity-100 group-focus-within:opacity-100 max-sm:opacity-60"
                 aria-label="Previous preview image"
               >
                 <Icon name="chev-left" className="h-5 w-5" />
@@ -242,7 +278,7 @@ export default function ProjectVisual({ project }: { project: Project }) {
               <button
                 type="button"
                 onClick={goToNextImage}
-                className="absolute right-2 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-sm bg-bg-raised/80 text-ink opacity-0 transition-opacity hover:bg-bg-raised group-hover:opacity-100 group-focus-within:opacity-100"
+                className="absolute right-2 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-sm bg-bg-raised/80 text-ink opacity-0 transition-opacity hover:bg-bg-raised group-hover:opacity-100 group-focus-within:opacity-100 max-sm:opacity-60"
                 aria-label="Next preview image"
               >
                 <Icon name="chev-right" className="h-5 w-5" />
@@ -288,7 +324,7 @@ export default function ProjectVisual({ project }: { project: Project }) {
     return (
       <a
         href="#top"
-        aria-label="This site is the live preview â€” jump back to the top"
+        aria-label="This site is the live preview — jump back to the top"
         className="group flex aspect-[16/10] flex-col overflow-hidden rounded-sm border border-line bg-bg-inset transition-colors hover:border-accent focus-visible:border-accent"
       >
         <div className="flex items-center justify-between border-b border-line bg-bg-raised px-3 py-1.5 text-[0.65rem] text-ink-faint">
@@ -299,7 +335,7 @@ export default function ProjectVisual({ project }: { project: Project }) {
         <div className="flex flex-1 flex-col justify-center gap-2.5 px-5 text-[0.85rem]">
           <p className="prompt-line text-ink-dim">file {project.slug}/preview.png</p>
           <p className="out-line text-ink">
-            not a screenshot â€” you&rsquo;re already inside it
+            not a screenshot — you&rsquo;re already inside it
           </p>
           <p className="comment text-ink-faint">
             this page is the live build, not a mockup
@@ -311,7 +347,7 @@ export default function ProjectVisual({ project }: { project: Project }) {
         </div>
 
         <div className="border-t border-line px-3 py-1.5 text-center text-[0.65rem] text-ink-faint opacity-0 transition-opacity group-hover:opacity-100">
-          â†‘ click to scroll to top
+          ↑ click to scroll to top
         </div>
       </a>
     );

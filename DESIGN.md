@@ -14,7 +14,7 @@ OKLCH-first; hex fallbacks listed.
 | `--bg-raised` | `#151b23` | panels, cards, window chrome |
 | `--ink` | `#dbe4ee` | body text (cool white, ≥4.5:1 on bg) |
 | `--ink-dim` | `#8b98a7` | secondary text (still ≥4.5:1) |
-| `--ink-faint` | `#5b6673` | hairline metadata, large sizes only |
+| `--ink-faint` | `#7d8b9c` | hairline metadata — must stay ≥4.5:1 on `--bg`, body-size use is OK |
 | `--accent` | `#6cc7e6` | cyan — prompts, links, interactive |
 | `--ok` | `#7ee2a8` | status: shipped/ok |
 | `--warn` | `#e6b566` | status: in-progress |

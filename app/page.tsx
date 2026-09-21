@@ -167,8 +167,11 @@ export default function Home() {
             {/* ls-style index */}
             <ul className="mb-12 max-w-[62ch] space-y-1.5 text-sm">
               {projects.map((p) => (
-                <li key={p.slug} className="flex items-baseline gap-2">
-                  <a href={`#${p.slug}`} className="link">
+                <li key={p.slug} className="flex items-center gap-2">
+                  <a
+                    href={`#${p.slug}`}
+                    className="link inline-flex min-h-[44px] items-center"
+                  >
                     {p.slug}/
                   </a>
                   <span className="leader" aria-hidden />
@@ -228,7 +231,7 @@ export default function Home() {
                         href={link.href}
                         target="_blank"
                         rel="noreferrer"
-                        className="link font-bold"
+                        className="link inline-flex min-h-[44px] items-center font-bold"
                       >
                         {link.label} ↗
                       </a>

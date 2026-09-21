@@ -41,6 +41,7 @@ export default function Nav() {
           className="flex min-h-[44px] min-w-[44px] items-center justify-center text-xs uppercase tracking-widest text-ink sm:hidden"
           aria-expanded={open}
           aria-controls="mobile-nav"
+          aria-label={open ? "Close menu" : "Open menu"}
           onClick={() => setOpen(!open)}
         >
           {open ? "[x]" : "[=]"} menu
