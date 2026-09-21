@@ -30,8 +30,9 @@ export default function Home() {
     <div id="top">
       <Nav />
 
-      {/* ————— Hero: the session opens ————— */}
-      <section className="mx-auto max-w-4xl px-5 pb-16 pt-14 sm:px-8 sm:pb-24 sm:pt-20">
+      <main id="main">
+        {/* ————— Hero: the session opens ————— */}
+        <section className="mx-auto max-w-4xl px-5 pb-16 pt-14 sm:px-8 sm:pb-24 sm:pt-20">
         <div className="overflow-hidden rounded-md border border-line bg-bg-raised shadow-[0_0_0_1px_var(--bg-inset)]">
           <div className="flex items-center gap-2 border-b border-line px-4 py-2.5 text-xs text-ink-faint">
             <span className="h-2.5 w-2.5 rounded-full border border-line" />
@@ -121,10 +122,10 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+        </section>
 
-      <main id="main" className="mx-auto max-w-4xl px-5 sm:px-8">
-        {/* ————— About ————— */}
+        <div className="mx-auto max-w-4xl px-5 sm:px-8">
+          {/* ————— About ————— */}
         <section id="about" className="reveal border-t border-line py-16">
           <PromptHeading cmd="cat about.txt" />
           <div className="max-w-[68ch] space-y-5 text-[0.95rem] leading-[1.85] text-ink-dim">
@@ -343,7 +344,8 @@ export default function Home() {
               linkedin
             </a>
           </div>
-        </section>
+          </section>
+        </div>
       </main>
 
       <footer className="border-t border-line">

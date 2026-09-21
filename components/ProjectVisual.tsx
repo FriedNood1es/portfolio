@@ -237,7 +237,8 @@ export default function ProjectVisual({ project }: { project: Project }) {
     return (
       <>
         <div
-          className="group relative flex aspect-[16/10] w-full items-center justify-center overflow-hidden rounded-sm border border-line bg-bg-inset"
+          className="group relative flex aspect-[16/10] w-full cursor-pointer items-center justify-center overflow-hidden rounded-sm border border-line bg-bg-inset"
+          onClick={() => setIsModalOpen(true)}
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
         >
@@ -253,32 +254,37 @@ export default function ProjectVisual({ project }: { project: Project }) {
           <button
             ref={openButtonRef}
             type="button"
-            onClick={() => setIsModalOpen(true)}
+            onClick={(e) => {
+              e.stopPropagation();
+              setIsModalOpen(true);
+            }}
             aria-label={`Open ${project.name} screenshots`}
-            className="absolute inset-0 z-0 flex items-center justify-center bg-bg-inset/0 transition-colors duration-300 hover:bg-bg-inset/40"
+            className="absolute left-3 top-3 z-10 flex min-h-[44px] items-center gap-1.5 rounded-sm bg-bg-raised/80 px-2.5 text-xs text-ink-faint transition-colors hover:bg-bg-raised hover:text-ink"
           >
-            <span className="flex flex-col items-center gap-2 opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-within:opacity-100">
-              <Icon name="expand" className="h-10 w-10 text-ink" />
-              <span className="text-sm font-medium text-ink">
-                Click to expand
-              </span>
-            </span>
+            <Icon name="expand" className="h-4 w-4" />
+            expand
           </button>
 
           {images.length > 1 && (
             <>
               <button
                 type="button"
-                onClick={goToPreviousImage}
-                className="absolute left-2 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-sm bg-bg-raised/80 text-ink opacity-0 transition-opacity hover:bg-bg-raised group-hover:opacity-100 group-focus-within:opacity-100 max-sm:opacity-60"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  goToPreviousImage();
+                }}
+                className="absolute left-2 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-sm bg-bg-raised/80 text-ink transition-colors hover:bg-bg-raised"
                 aria-label="Previous preview image"
               >
                 <Icon name="chev-left" className="h-5 w-5" />
               </button>
               <button
                 type="button"
-                onClick={goToNextImage}
-                className="absolute right-2 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-sm bg-bg-raised/80 text-ink opacity-0 transition-opacity hover:bg-bg-raised group-hover:opacity-100 group-focus-within:opacity-100 max-sm:opacity-60"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  goToNextImage();
+                }}
+                className="absolute right-2 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-sm bg-bg-raised/80 text-ink transition-colors hover:bg-bg-raised"
                 aria-label="Next preview image"
               >
                 <Icon name="chev-right" className="h-5 w-5" />
@@ -288,22 +294,25 @@ export default function ProjectVisual({ project }: { project: Project }) {
                 {currentImageIndex + 1} / {images.length}
               </div>
 
-              <div className="absolute bottom-3 left-1/2 z-10 flex -translate-x-1/2 gap-0.5">
+              <div className="absolute bottom-3 left-1/2 z-10 flex -translate-x-1/2 items-center gap-0.5">
                 {images.map((_, idx) => (
                   <button
                     key={idx}
                     type="button"
-                    onClick={() => setCurrentImageIndex(idx)}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setCurrentImageIndex(idx);
+                    }}
                     className="flex h-11 w-11 items-center justify-center"
                     aria-label={`Show preview image ${idx + 1}`}
                     aria-current={idx === currentImageIndex}
                   >
                     <span
                       aria-hidden="true"
-                      className={`h-2 w-2 rounded-full ${
+                      className={`h-2 rounded-full transition-all ${
                         idx === currentImageIndex
-                          ? "bg-ink"
-                          : "bg-ink-faint"
+                          ? "w-6 bg-ink"
+                          : "w-2 bg-ink-faint"
                       }`}
                     />
                   </button>

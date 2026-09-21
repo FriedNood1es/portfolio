@@ -9,6 +9,7 @@ export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 const colors = {
+  // Mirror of app/globals.css tokens — globals.css is the source of truth.
   bg: "#0d1117",
   bgRaised: "#151b23",
   ink: "#dbe4ee",

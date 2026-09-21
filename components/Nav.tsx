@@ -51,7 +51,7 @@ export default function Nav() {
       {open && (
         <nav
           id="mobile-nav"
-          aria-label="Main"
+          aria-label="Menu"
           className="flex flex-col border-t border-line bg-bg-raised px-5 py-1 sm:hidden"
         >
           {links.map((l) => (
