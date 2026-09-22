@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import {
+  useCallback,
   useEffect,
   useMemo,
   useRef,
@@ -49,6 +50,14 @@ export default function ProjectVisual({ project }: { project: Project }) {
   }, [project.images, project.image]);
 
   const currentImage = images[currentImageIndex];
+
+  const goToPreviousImage = useCallback(() => {
+    setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length);
+  }, [images.length]);
+
+  const goToNextImage = useCallback(() => {
+    setCurrentImageIndex((prev) => (prev + 1) % images.length);
+  }, [images.length]);
 
   useEffect(() => {
     if (!isModalOpen) {
@@ -101,7 +110,7 @@ export default function ProjectVisual({ project }: { project: Project }) {
       window.removeEventListener("keydown", handleKeyDown);
       opener?.focus();
     };
-  }, [isModalOpen]);
+  }, [isModalOpen, goToNextImage, goToPreviousImage]);
 
   const handleTouchStart = (e: React.TouchEvent) => {
     touchStartX.current = e.changedTouches[0].screenX;
@@ -129,14 +138,6 @@ export default function ProjectVisual({ project }: { project: Project }) {
     } else {
       goToPreviousImage();
     }
-  };
-
-  const goToPreviousImage = () => {
-    setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length);
-  };
-
-  const goToNextImage = () => {
-    setCurrentImageIndex((prev) => (prev + 1) % images.length);
   };
 
   if (images.length > 0) {
@@ -237,7 +238,9 @@ export default function ProjectVisual({ project }: { project: Project }) {
     return (
       <>
         <div
-          className="group relative flex aspect-[16/10] w-full cursor-pointer items-center justify-center overflow-hidden rounded-sm border border-line bg-bg-inset"
+          className={`group relative flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-sm border border-line bg-bg-inset ${
+            isMobileAspect ? "aspect-[9/16]" : "aspect-[16/10]"
+          }`}
           onClick={() => setIsModalOpen(true)}
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
@@ -248,7 +251,11 @@ export default function ProjectVisual({ project }: { project: Project }) {
             width={isMobileAspect ? 1080 : 1600}
             height={isMobileAspect ? 2400 : 1000}
             sizes="(min-width: 640px) 320px, calc(100vw - 40px)"
-            className={`h-full w-full object-contain ${isMobileAspect ? "p-3" : ""}`}
+            className={
+              isMobileAspect
+                ? "h-full w-full object-contain p-3"
+                : "h-full w-full object-cover object-top"
+            }
           />
 
           <button
