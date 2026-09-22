@@ -184,26 +184,25 @@ export const projects: Project[] = [
     hue: 265,
   },
   {
-    slug: "portfolio",
-    name: "This Portfolio",
-    status: "shipped",
-    period: "2025 – Present",
-    kind: "Personal Project",
-    stack: ["Next.js", "TypeScript", "React", "Vercel"],
+    slug: "pitchiq",
+    name: "PitchIQ",
+    status: "in-progress",
+    period: "2026 – Present",
+    kind: "Personal Project — full-stack",
+    stack: ["Express.js", "Node.js", "React", "TypeScript", "Vite", "Tailwind CSS"],
     summary:
-      "The site you're reading — a responsive portfolio built with Next.js and TypeScript, deployed on Vercel with automated deployments from GitHub.",
+      "A full-stack football match prediction dashboard serving REST APIs from an Express.js backend to a React SPA, covering 11 competitions with live tracking and AI-generated match insights.",
     points: [
-      "Statically generated, zero client-side framework overhead beyond React itself.",
-      "Designed and iterated with an agentic coding workflow (Claude Code), with every claim reviewed against the resume.",
+      "Built an Express.js/Node.js backend serving REST APIs to a React SPA frontend built with Vite, TypeScript, Tailwind CSS, and TanStack Query.",
+      "Integrated a third-party sports data API with caching and a modular agent pipeline for data retrieval, validation, and reporting across 11 football competitions.",
+      "Implemented live match tracking with countdown timers, debounced team search, and a match comparison report with data visualization using Chart.js.",
+      "Integrated an LLM API for AI-generated match insights with graceful fallback to deterministic templates.",
     ],
     links: [
-      {
-        href: "https://github.com/FriedNood1es/portfolio",
-        label: "View source",
-      },
+      { href: "https://pitch-iq-theta.vercel.app", label: "View live app" },
+      { href: "https://github.com/FriedNood1es/pitchIQ", label: "View repository" },
     ],
-    selfPreview: true,
-    hue: 32,
+    hue: 210,
   },
 ];
 

@@ -8,8 +8,8 @@
   * { box-sizing: border-box; }
   body {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 10.3pt;
-    line-height: 1.38;
+    font-size: 9.5pt;
+    line-height: 1.25;
     color: #111;
     margin: 0;
   }
@@ -29,7 +29,7 @@
   .contact {
     text-align: center;
     font-size: 9.3pt;
-    margin: 0 0 14px 0;
+    margin: 0 0 10px 0;
   }
   .contact a { color: #111; text-decoration: none; }
   h2 {
@@ -38,29 +38,35 @@
     letter-spacing: 0.5px;
     border-bottom: 1.2px solid #111;
     padding-bottom: 2px;
-    margin: 14px 0 6px 0;
+    margin: 10px 0 6px 0;
   }
   h2:first-of-type { margin-top: 10px; }
   p.summary { margin: 0 0 2px 0; text-align: justify; }
-  .skills-row { margin: 3px 0; }
+  .skills-row { margin: 2px 0; }
   .skills-row b { white-space: nowrap; }
   .entry-head {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
+    gap: 12px;
     font-weight: bold;
-    margin-top: 8px;
+    margin-top: 6px;
   }
+  .entry-head > span:first-child { flex: 1; }
+  .entry-head > span:last-child { white-space: nowrap; flex-shrink: 0; }
   .entry-sub {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
+    gap: 12px;
     font-style: italic;
     font-size: 9.8pt;
-    margin-bottom: 3px;
+    margin-bottom: 2px;
   }
+  .entry-sub > span:first-child { flex: 1; }
+  .entry-sub > span:last-child { white-space: nowrap; flex-shrink: 0; }
   ul { margin: 2px 0 0 0; padding-left: 18px; }
-  li { margin-bottom: 2px; }
+  li { margin-bottom: 1px; }
   .edu-degree { margin: 1px 0; }
   .edu-detail { font-size: 9.8pt; }
 </style>
@@ -70,66 +76,49 @@
   <h1>KENT LOZANO</h1>
   <div class="role">Entry-Level Web Developer</div>
   <div class="contact">
-    Davao City, Philippines | +63 966 637 0287 | kentlozano45@gmail.com | kent-lozano.vercel.app |
-    github.com/FriedNood1es | linkedin.com/in/kntlzn
+    Davao City, Philippines | +63 966 637 0287 | kentlozano45@gmail.com |
+    kent-lozano.vercel.app | github.com/FriedNood1es | linkedin.com/in/kntlzn
   </div>
 
   <h2>Summary</h2>
   <p class="summary">
     Entry-level web developer specializing in full-stack web development with <b>Next.js, React, TypeScript,
     Prisma, and PostgreSQL</b>. Built and deployed <b>Kanbo</b>, a database-backed job-search tracker featuring
-    <b>OAuth sign-in</b>, drag-and-drop kanban boards, and an analytics dashboard, alongside a responsive personal
-    portfolio hosted on Vercel. BS in Information Technology graduate with additional manual QA internship
-    experience testing a Laravel-based academic analytics system. Seeking an <b>Entry-level Web Developer,
-    Frontend Developer, Full-Stack Developer, or Software Developer</b> role.
+    <b>OAuth sign-in</b>, drag-and-drop kanban boards, and an analytics dashboard. BS in Information Technology
+    graduate with additional manual QA internship experience testing a Laravel-based academic analytics system.
+    Seeking an <b>Entry-level Web Developer, Frontend Developer, Full-Stack Developer, or Software
+    Developer</b> role.
   </p>
 
   <h2>Technical Skills</h2>
   <ul>
-    <li class="skills-row"><b>Programming Languages:</b> TypeScript, JavaScript (ES6+)</li>
-    <li class="skills-row"><b>Frameworks &amp; Libraries:</b> React.js, Next.js, TanStack Query, @dnd-kit</li>
-    <li class="skills-row"><b>HTML &amp; CSS:</b> HTML5, CSS3, Tailwind CSS, Responsive Design</li>
-    <li class="skills-row"><b>Backend &amp; Databases:</b> Node.js, Express.js, Prisma ORM, PostgreSQL, MySQL, SQL, REST API</li>
-    <li class="skills-row"><b>Auth &amp; Sessions:</b> Auth.js (GitHub/Google OAuth, database-backed sessions)</li>
+    <li class="skills-row"><b>Languages:</b> TypeScript, JavaScript (ES6+)</li>
+    <li class="skills-row"><b>Frontend:</b> React.js, Next.js, HTML5, CSS3, Tailwind CSS, Responsive Design, TanStack Query, @dnd-kit</li>
+    <li class="skills-row"><b>Backend &amp; Data:</b> Node.js, Express.js, Prisma ORM, PostgreSQL, MySQL, SQL, REST API, Auth.js (OAuth, database-backed sessions)</li>
     <li class="skills-row"><b>DevOps &amp; Tooling:</b> Git, GitHub, Vercel, Vite, VS Code, CI/CD</li>
     <li class="skills-row"><b>Testing &amp; QA:</b> Test Case Design, Manual &amp; Functional Testing, Data Validation, User Acceptance Testing, Bug Reporting</li>
-    <li class="skills-row"><b>Mobile &amp; ML:</b> Flutter, Dart, TensorFlow Lite, OCR integration</li>
-    <li class="skills-row"><b>AI-Assisted Development:</b> Claude Code, GitHub Copilot (scaffolding, refactoring, code review; all generated code validated against requirements)</li>
+    <li class="skills-row"><b>Mobile &amp; AI:</b> Flutter, Dart, TensorFlow Lite, OCR integration, Claude Code, GitHub Copilot</li>
   </ul>
 
   <h2>Key Projects</h2>
 
   <div class="entry-head"><span>Kanbo — Job-Search Kanban Tracker</span><span>2026</span></div>
-  <div class="entry-sub"><span>Personal Project — full-stack — kanbo-two.vercel.app</span><span>Next.js + TypeScript + Prisma + PostgreSQL + Auth.js</span></div>
+  <div class="entry-sub"><span>kanbo-two.vercel.app</span><span>Next.js, TypeScript, Prisma, PostgreSQL, Auth.js</span></div>
   <ul>
-    <li>Built a full-stack, database-backed application with <b>Next.js (server-side rendering)</b>, <b>TypeScript</b>, <b>Prisma</b>, and <b>PostgreSQL</b>.</li>
-    <li>Implemented a drag-and-drop Kanban board with <b>@dnd-kit</b> and fractional-position reordering, so moving a card only rewrites that one row while the board persists to the database.</li>
-    <li>Integrated <b>Auth.js v5</b> with GitHub/Google <b>OAuth</b> and database-backed sessions, enforcing per-user data access on every Server Action rather than trusting the client.</li>
-    <li>Built a funnel/conversion analytics page computed from real stage-transition history, with stale-application flagging, a full dark-mode palette, and designed <b>REST API</b> endpoints serving analytics data including CSV export (<b>/api/export</b>).</li>
-    <li>Iterated feature-by-feature with an agentic coding workflow (Claude Code), testing each change against the live app before shipping.</li>
+    <li>Built a full-stack, database-backed app with <b>Next.js</b>, <b>TypeScript</b>, <b>Prisma</b>, and <b>PostgreSQL</b>, including a drag-and-drop Kanban board with <b>@dnd-kit</b> fractional-position reordering.</li>
+    <li>Integrated <b>Auth.js v5</b> with GitHub/Google <b>OAuth</b> and database-backed sessions enforcing per-user data access; added an analytics page with CSV export via REST API (<b>/api/export</b>).</li>
   </ul>
 
   <div class="entry-head"><span>PitchIQ — Football Match Prediction Dashboard</span><span>2026 – Present</span></div>
-  <div class="entry-sub"><span>Personal Project — full-stack</span><span>Express.js + Node.js + React + TypeScript + Vite + Tailwind CSS</span></div>
+  <div class="entry-sub"><span>pitch-iq-theta.vercel.app</span><span>Express.js, Node.js, React, TypeScript, Vite, Tailwind CSS</span></div>
   <ul>
-    <li>Built a full-stack dashboard with an <b>Express.js/Node.js</b> backend serving <b>REST APIs</b> and a React SPA frontend built with <b>Vite</b>, <b>TypeScript</b>, <b>Tailwind CSS</b>, and <b>TanStack Query</b>.</li>
-    <li>Integrated a third-party sports data API with caching and a modular agent pipeline for data retrieval, validation, and reporting across 11 football competitions.</li>
-    <li>Implemented live match tracking with countdown timers, debounced team search, and a match comparison report with data visualization using <b>Chart.js</b>.</li>
-    <li>Integrated an LLM API (Groq/Gemini) for AI-generated match insights with graceful fallback to deterministic templates.</li>
+    <li>Built a full-stack dashboard with an <b>Express.js/Node.js</b> backend serving <b>REST APIs</b> and a React SPA frontend, integrating a sports data API across 11 competitions with live tracking and LLM insights.</li>
   </ul>
 
-  <div class="entry-head"><span>Personal Portfolio Website — kent-lozano.vercel.app</span><span>2025 – Present</span></div>
-  <div class="entry-sub"><span>Personal Project</span><span>Next.js + TypeScript + React + Vercel</span></div>
+  <div class="entry-head"><span>bastaFDA — Medicine Verification Mobile App (Capstone)</span><span>2025 – 2026</span></div>
+  <div class="entry-sub"><span>Holy Cross of Davao College</span><span>Flutter, Dart, TensorFlow Lite, OCR, Firebase</span></div>
   <ul>
-    <li>Responsive portfolio site with <b>Next.js</b> and <b>TypeScript</b>, auto-deployed from GitHub via Vercel <b>CI/CD</b>.</li>
-  </ul>
-
-  <div class="entry-head"><span>bastaFDA — Mobile Verification of FDA-Approved Products</span><span>2025 – 2026</span></div>
-  <div class="entry-sub"><span>Capstone Project (Holy Cross of Davao College)</span><span>Flutter + Dart + TensorFlow Lite + OCR + Firebase</span></div>
-  <ul>
-    <li>Developed a <b>Flutter</b> application that verifies medicine authenticity by cross-referencing <b>OCR</b> text extraction and <b>TensorFlow Lite</b> image recognition against official FDA registration data.</li>
-    <li>Trained and integrated a <b>TensorFlow Lite image-classification model</b> for on-device identification of supported medicine products from a curated image dataset.</li>
-    <li>Implemented the full product flow (scanning, verification, history, reporting) with <b>Firebase</b> authentication and real-time data.</li>
+    <li>Developed a <b>Flutter</b> app verifying medicine authenticity via <b>OCR</b> and <b>TensorFlow Lite</b> image recognition against FDA registration data, with <b>Firebase</b> authentication.</li>
   </ul>
 
   <h2>Work Experience</h2>
@@ -137,18 +126,14 @@
   <div class="entry-head"><span>HOLY CROSS OF DAVAO COLLEGE</span><span>Davao City, Philippines</span></div>
   <div class="entry-sub"><span>QA Intern, Developer Track — Academic Intervention System (Laravel)</span><span>Feb – May 2026</span></div>
   <ul>
-    <li>Performed manual QA on an academic intervention system for the Office of the VP for Academic Affairs that monitors per-course and per-professor grade trends.</li>
-    <li>Designed and executed test cases across the system's grade-checking, analytics, and reporting features.</li>
-    <li>Verified data accuracy of grade computations and pass/fail statistics against source academic records.</li>
-    <li>Localized reported defects in the Laravel codebase to root causes and proposed fixes to the development team; supported user acceptance testing with academic stakeholders.</li>
+    <li>Designed and executed test cases across the grade-checking, analytics, and reporting features of a system used by the Office of the VP for Academic Affairs.</li>
+    <li>Verified data accuracy of grade computations and pass/fail statistics against source academic records; localized reported defects in the Laravel codebase and proposed fixes to the development team.</li>
   </ul>
-
-
 
   <h2>Education</h2>
   <div class="entry-head"><span>HOLY CROSS OF DAVAO COLLEGE</span><span>Davao City, Philippines</span></div>
   <p class="edu-degree">Bachelor of Science in Information Technology, 2020 – 2026</p>
-  <p class="edu-detail">Capstone: bastaFDA — Mobile Verification of FDA-Approved Products | Coursework: Mobile Application Development, Database Management Systems, Software Engineering, Data Structures &amp; Algorithms</p>
+  <p class="edu-detail">Capstone: bastaFDA — Mobile Verification of FDA-Approved Products</p>
 
 </body>
 </html>
