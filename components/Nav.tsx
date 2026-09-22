@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const links = [
   { href: "#about", label: "about" },
@@ -13,6 +13,28 @@ const links = [
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
+  const [active, setActive] = useState<string | null>(null);
+
+  useEffect(() => {
+    const sections = links
+      .map((l) => document.querySelector(l.href))
+      .filter((el): el is Element => el !== null);
+    if (sections.length === 0) {
+      return;
+    }
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            setActive(`#${entry.target.id}`);
+          }
+        }
+      },
+      { rootMargin: "-40% 0px -55% 0px" }
+    );
+    sections.forEach((s) => observer.observe(s));
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <header className="sticky top-0 z-40 border-b border-line bg-bg/90 backdrop-blur-sm">
@@ -29,7 +51,12 @@ export default function Nav() {
             <a
               key={l.href}
               href={l.href}
-              className="flex min-h-[44px] items-center text-sm text-ink-dim transition-colors duration-150 hover:text-accent focus-visible:text-accent"
+              aria-current={active === l.href ? "true" : undefined}
+              className={`flex min-h-[44px] items-center text-sm transition-colors duration-150 hover:text-accent focus-visible:text-accent ${
+                active === l.href
+                  ? "text-accent underline decoration-accent/60 underline-offset-8"
+                  : "text-ink-dim"
+              }`}
             >
               ./{l.label}
             </a>
@@ -58,7 +85,10 @@ export default function Nav() {
             <a
               key={l.href}
               href={l.href}
-              className="flex min-h-[44px] items-center border-b border-line text-sm text-ink-dim last:border-0"
+              aria-current={active === l.href ? "true" : undefined}
+              className={`flex min-h-[44px] items-center border-b border-line text-sm last:border-0 ${
+                active === l.href ? "text-accent" : "text-ink-dim"
+              }`}
               onClick={() => setOpen(false)}
             >
               ./{l.label}

@@ -17,11 +17,22 @@ const statusText: Record<Project["status"], { text: string; tone: string }> = {
   planned: { text: "[planned]", tone: "text-ink-faint" },
 };
 
-function PromptHeading({ cmd, id }: { cmd: string; id?: string }) {
+function PromptHeading({
+  cmd,
+  id,
+  sub,
+}: {
+  cmd: string;
+  id?: string;
+  sub?: string;
+}) {
   return (
-    <h2 id={id} className="prompt-line mb-8 text-base font-bold text-ink">
-      {cmd}
-    </h2>
+    <>
+      <h2 id={id} className="prompt-line mb-8 text-base font-bold text-ink">
+        {cmd}
+      </h2>
+      {sub && <p className="comment -mt-6 mb-8 text-xs">{sub}</p>}
+    </>
   );
 }
 
@@ -92,11 +103,16 @@ export default function Home() {
               >
                 ls projects/
               </a>
+            </div>
+            <div
+              className="hero-in mt-2 flex flex-wrap items-center gap-x-5 gap-y-1"
+              style={{ "--d": "1.05s" } as React.CSSProperties}
+            >
               <a
                 href={identity.resume}
                 target="_blank"
                 rel="noreferrer"
-                className="flex min-h-[44px] items-center gap-2 rounded-sm border border-accent px-4 py-2 text-sm font-bold text-accent transition-colors duration-150 hover:bg-accent hover:text-bg focus-visible:bg-accent focus-visible:text-bg"
+                className="link inline-flex min-h-[44px] items-center gap-1.5 text-sm text-ink-dim"
               >
                 <Icon name="download" />
                 resume.pdf
@@ -105,7 +121,7 @@ export default function Home() {
                 href={identity.github}
                 target="_blank"
                 rel="noreferrer"
-                className="flex min-h-[44px] items-center gap-2 rounded-sm border border-line px-4 py-2 text-sm text-ink transition-colors duration-150 hover:border-accent hover:text-accent focus-visible:border-accent focus-visible:text-accent"
+                className="link inline-flex min-h-[44px] items-center gap-1.5 text-sm text-ink-dim"
               >
                 <Icon name="github" />
                 {identity.githubHandle}
@@ -114,7 +130,7 @@ export default function Home() {
                 href={identity.linkedin}
                 target="_blank"
                 rel="noreferrer"
-                className="flex min-h-[44px] items-center gap-2 rounded-sm border border-line px-4 py-2 text-sm text-ink transition-colors duration-150 hover:border-accent hover:text-accent focus-visible:border-accent focus-visible:text-accent"
+                className="link inline-flex min-h-[44px] items-center gap-1.5 text-sm text-ink-dim"
               >
                 <Icon name="linkedin" />
                 in/{identity.linkedinHandle}
@@ -127,7 +143,7 @@ export default function Home() {
         <div className="mx-auto max-w-4xl px-5 sm:px-8">
           {/* ————— About ————— */}
         <section id="about" className="reveal border-t border-line py-16">
-          <PromptHeading cmd="cat about.txt" />
+          <PromptHeading cmd="cat about.txt" sub="about me, in plain words" />
           <div className="max-w-[68ch] space-y-5 text-[0.95rem] leading-[1.85] text-ink-dim">
             {about.map((p) => (
               <p key={p.slice(0, 24)}>{p}</p>
@@ -137,9 +153,10 @@ export default function Home() {
 
         {/* ————— Skills ————— */}
         <section id="skills" className="reveal border-t border-line py-16">
-          <PromptHeading cmd="kent --skills" />
+          <PromptHeading cmd="kent --skills" sub="technical skills at a glance" />
           <dl className="grid gap-x-10 gap-y-7 sm:grid-cols-2">
-            {skills.map((g) => (
+            {/* Top-2 groups up front (order curated in lib/content.ts); the rest fold into "Also". */}
+            {skills.slice(0, 2).map((g) => (
               <div key={g.label}>
                 <dt className="flex items-center gap-2 text-sm font-bold text-ink">
                   <Icon name={g.icon} className="h-4 w-4 shrink-0 text-accent" />
@@ -157,13 +174,24 @@ export default function Home() {
                 </dd>
               </div>
             ))}
+            <div className="sm:col-span-2">
+              <dt className="text-sm font-bold text-ink">Also</dt>
+              <dd className="mt-2 space-y-1.5">
+                {skills.slice(2).map((g) => (
+                  <p key={g.label} className="text-[0.85rem] text-ink-dim">
+                    <span className="text-ink-faint">{g.label}: </span>
+                    {g.items.join(" · ")}
+                  </p>
+                ))}
+              </dd>
+            </div>
           </dl>
         </section>
 
         {/* ————— Projects ————— */}
         <section id="projects" className="border-t border-line py-16">
           <div className="reveal">
-            <PromptHeading cmd="ls projects/ --status" />
+            <PromptHeading cmd="ls projects/ --status" sub="selected work — expand a row for details" />
 
             {/* ls-style index */}
             <ul className="mb-12 max-w-[62ch] space-y-1.5 text-sm">
@@ -180,66 +208,83 @@ export default function Home() {
                     {statusText[p.status].text}
                   </span>
                   <span className="hidden text-ink-faint sm:inline">
-                    {p.period.toLowerCase()}
+                    {p.period}
                   </span>
                 </li>
               ))}
             </ul>
           </div>
 
-          <div className="space-y-14">
-            {projects.map((p) => (
-              <article
+          <div className="space-y-4">
+            {projects.map((p, i) => (
+              <details
                 key={p.slug}
                 id={p.slug}
-                className="reveal grid gap-6 sm:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] sm:gap-10"
+                open={i === 0}
+                className="reveal group scroll-mt-24 rounded-sm border border-line bg-bg-raised"
               >
-                <ProjectVisual project={p} />
+                <summary className="flex min-h-[44px] cursor-pointer list-none items-center gap-x-3 gap-y-1 px-4 py-3 [&::-webkit-details-marker]:hidden">
+                  <span
+                    aria-hidden="true"
+                    className="font-bold text-accent"
+                  >
+                    <span className="hidden group-open:inline">−</span>
+                    <span className="group-open:hidden">+</span>
+                  </span>
+                  <span
+                    role="heading"
+                    aria-level={3}
+                    className="display text-base font-bold text-ink"
+                  >
+                    {p.name}
+                  </span>
+                  <span
+                    className={`text-xs ${statusText[p.status].tone}`}
+                  >
+                    {statusText[p.status].text}
+                  </span>
+                  <span className="hidden text-xs text-ink-faint sm:inline">
+                    {p.period}
+                  </span>
+                </summary>
 
-                <div>
-                  <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-                    <h3 className="display text-xl font-bold text-ink">
-                      {p.name}
-                    </h3>
-                    <span
-                      className={`text-xs ${statusText[p.status].tone}`}
-                    >
-                      {statusText[p.status].text}
-                    </span>
-                    <span className="text-xs text-ink-faint">{p.period}</span>
-                  </div>
-                  <p className="comment mt-1 text-xs">{p.kind}</p>
+                <div className="grid gap-6 border-t border-line px-4 py-5 sm:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] sm:gap-10">
+                  <ProjectVisual project={p} />
 
-                  <p className="mt-3 max-w-[62ch] text-[0.9rem] leading-[1.8] text-ink-dim">
-                    {p.summary}
-                  </p>
+                  <div>
+                    <p className="comment mt-1 text-xs">{p.kind}</p>
 
-                  <ul className="mt-3 max-w-[62ch] space-y-1.5 text-[0.85rem] leading-relaxed text-ink-dim">
-                    {p.points.map((pt) => (
-                      <li key={pt.slice(0, 24)} className="out-line">
-                        {pt}
-                      </li>
-                    ))}
-                  </ul>
+                    <p className="mt-3 max-w-[62ch] text-[0.9rem] leading-[1.8] text-ink-dim">
+                      {p.summary}
+                    </p>
 
-                  <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs">
-                    <span className="text-ink-faint">
-                      {p.stack.join(" · ")}
-                    </span>
-                    {p.links?.map((link) => (
-                      <a
-                        key={link.href}
-                        href={link.href}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="link inline-flex min-h-[44px] items-center font-bold"
-                      >
-                        {link.label} ↗
-                      </a>
-                    ))}
+                    <ul className="mt-3 max-w-[62ch] space-y-1.5 text-[0.85rem] leading-relaxed text-ink-dim">
+                      {p.points.map((pt) => (
+                        <li key={pt.slice(0, 24)} className="out-line">
+                          {pt}
+                        </li>
+                      ))}
+                    </ul>
+
+                    <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs">
+                      <span className="text-ink-faint">
+                        {p.stack.join(" · ")}
+                      </span>
+                      {p.links?.map((link) => (
+                        <a
+                          key={link.href}
+                          href={link.href}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="link inline-flex min-h-[44px] items-center font-bold"
+                        >
+                          {link.label} ↗
+                        </a>
+                      ))}
+                    </div>
                   </div>
                 </div>
-              </article>
+              </details>
             ))}
           </div>
         </section>
@@ -247,7 +292,7 @@ export default function Home() {
         {/* ————— Experience ————— */}
         <section id="experience" className="border-t border-line py-16">
           <div className="reveal">
-            <PromptHeading cmd="kent --experience" />
+            <PromptHeading cmd="kent --experience" sub="where I've worked" />
           </div>
           <div className="space-y-12">
             {experience.map((e) => (
@@ -285,7 +330,7 @@ export default function Home() {
         {/* ————— Education ————— */}
         <section id="education" className="border-t border-line py-16">
           <div className="reveal">
-            <PromptHeading cmd="kent --education" />
+            <PromptHeading cmd="kent --education" sub="schooling" />
           </div>
           <article className="reveal grid gap-3 sm:grid-cols-[10rem_1fr] sm:gap-10">
             <div className="text-sm text-ink-faint">
@@ -309,7 +354,7 @@ export default function Home() {
 
         {/* ————— Contact ————— */}
         <section id="contact" className="reveal border-t border-line py-20">
-          <PromptHeading cmd="kent --contact" />
+          <PromptHeading cmd="kent --contact" sub="get in touch" />
           <p className="display max-w-[30ch] text-2xl font-bold leading-snug text-ink sm:text-3xl">
             Looking for an entry-level developer who ships?
           </p>
