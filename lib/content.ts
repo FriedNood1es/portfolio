@@ -202,6 +202,7 @@ export const projects: Project[] = [
       { href: "https://pitch-iq-theta.vercel.app", label: "View live app" },
       { href: "https://github.com/FriedNood1es/pitchIQ", label: "View repository" },
     ],
+    images: ["/projects/pitchiq_1.png", "/projects/pitchiq_2.png", "/projects/pitchiq_3.png"],
     hue: 210,
   },
 ];
