@@ -1,4 +1,5 @@
 import Nav from "@/components/Nav";
+import OpenDetailsOnHash from "@/components/OpenDetailsOnHash";
 import ProjectVisual from "@/components/ProjectVisual";
 import Icon from "@/components/Icons";
 import {
@@ -19,19 +20,24 @@ const statusText: Record<Project["status"], { text: string; tone: string }> = {
 
 function PromptHeading({
   cmd,
+  title,
+  hint,
   id,
-  sub,
 }: {
   cmd: string;
+  title: string;
+  hint?: string;
   id?: string;
-  sub?: string;
 }) {
   return (
     <>
-      <h2 id={id} className="prompt-line mb-8 text-base font-bold text-ink">
-        {cmd}
+      <h2 id={id} className="mb-2 text-base font-bold text-ink">
+        {title}
       </h2>
-      {sub && <p className="comment -mt-6 mb-8 text-xs">{sub}</p>}
+      <p className="prompt-line mb-8 text-xs text-ink-dim">
+        {cmd}
+        {hint ? ` — ${hint}` : ""}
+      </p>
     </>
   );
 }
@@ -40,6 +46,7 @@ export default function Home() {
   return (
     <div id="top">
       <Nav />
+      <OpenDetailsOnHash />
 
       <main id="main">
         {/* ————— Hero: the session opens ————— */}
@@ -143,7 +150,7 @@ export default function Home() {
         <div className="mx-auto max-w-4xl px-5 sm:px-8">
           {/* ————— About ————— */}
         <section id="about" className="reveal border-t border-line py-16">
-          <PromptHeading cmd="cat about.txt" sub="about me, in plain words" />
+          <PromptHeading cmd="cat about.txt" title="About me" />
           <div className="max-w-[68ch] space-y-5 text-[0.95rem] leading-[1.85] text-ink-dim">
             {about.map((p) => (
               <p key={p.slice(0, 24)}>{p}</p>
@@ -153,7 +160,7 @@ export default function Home() {
 
         {/* ————— Skills ————— */}
         <section id="skills" className="reveal border-t border-line py-16">
-          <PromptHeading cmd="kent --skills" sub="technical skills at a glance" />
+          <PromptHeading cmd="kent --skills" title="Technical skills" />
           <dl className="grid gap-x-10 gap-y-7 sm:grid-cols-2">
             {/* Top-2 groups up front (order curated in lib/content.ts); the rest fold into "Also". */}
             {skills.slice(0, 2).map((g) => (
@@ -176,7 +183,7 @@ export default function Home() {
             ))}
             <div className="sm:col-span-2">
               <dt className="text-sm font-bold text-ink">Also</dt>
-              <dd className="mt-2 space-y-1.5">
+              <dd className="mt-2 grid gap-x-10 gap-y-4 sm:grid-cols-2">
                 {skills.slice(2).map((g) => (
                   <p key={g.label} className="text-[0.85rem] text-ink-dim">
                     <span className="text-ink-faint">{g.label}: </span>
@@ -191,7 +198,11 @@ export default function Home() {
         {/* ————— Projects ————— */}
         <section id="projects" className="border-t border-line py-16">
           <div className="reveal">
-            <PromptHeading cmd="ls projects/ --status" sub="selected work — expand a row for details" />
+            <PromptHeading
+              cmd="ls projects/ --status"
+              title="Selected work"
+              hint="expand a row for details"
+            />
 
             {/* ls-style index */}
             <ul className="mb-12 max-w-[62ch] space-y-1.5 text-sm">
@@ -231,11 +242,7 @@ export default function Home() {
                     <span className="hidden group-open:inline">−</span>
                     <span className="group-open:hidden">+</span>
                   </span>
-                  <span
-                    role="heading"
-                    aria-level={3}
-                    className="display text-base font-bold text-ink"
-                  >
+                  <span className="display text-base font-bold text-ink">
                     {p.name}
                   </span>
                   <span
@@ -292,7 +299,7 @@ export default function Home() {
         {/* ————— Experience ————— */}
         <section id="experience" className="border-t border-line py-16">
           <div className="reveal">
-            <PromptHeading cmd="kent --experience" sub="where I've worked" />
+            <PromptHeading cmd="kent --experience" title="Work experience" />
           </div>
           <div className="space-y-12">
             {experience.map((e) => (
@@ -330,7 +337,7 @@ export default function Home() {
         {/* ————— Education ————— */}
         <section id="education" className="border-t border-line py-16">
           <div className="reveal">
-            <PromptHeading cmd="kent --education" sub="schooling" />
+            <PromptHeading cmd="kent --education" title="Education" />
           </div>
           <article className="reveal grid gap-3 sm:grid-cols-[10rem_1fr] sm:gap-10">
             <div className="text-sm text-ink-faint">
@@ -354,7 +361,7 @@ export default function Home() {
 
         {/* ————— Contact ————— */}
         <section id="contact" className="reveal border-t border-line py-20">
-          <PromptHeading cmd="kent --contact" sub="get in touch" />
+          <PromptHeading cmd="kent --contact" title="Contact" />
           <p className="display max-w-[30ch] text-2xl font-bold leading-snug text-ink sm:text-3xl">
             Looking for an entry-level developer who ships?
           </p>

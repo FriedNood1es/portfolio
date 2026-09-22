@@ -238,33 +238,36 @@ export default function ProjectVisual({ project }: { project: Project }) {
     return (
       <>
         <div
-          className={`group relative flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-sm border border-line bg-bg-inset ${
+          className={`group relative w-full overflow-hidden rounded-sm border border-line bg-bg-inset ${
             isMobileAspect ? "aspect-[9/16]" : "aspect-[16/10]"
           }`}
-          onClick={() => setIsModalOpen(true)}
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
         >
-          <Image
-            src={currentImage}
-            alt={`${project.name} screenshot ${currentImageIndex + 1}`}
-            width={isMobileAspect ? 1080 : 1600}
-            height={isMobileAspect ? 2400 : 1000}
-            sizes="(min-width: 640px) 320px, calc(100vw - 40px)"
-            className={
-              isMobileAspect
-                ? "h-full w-full object-contain p-3"
-                : "h-full w-full object-cover object-top"
-            }
-          />
+          <button
+            type="button"
+            onClick={() => setIsModalOpen(true)}
+            aria-label={`Open ${project.name} screenshots`}
+            className="block h-full w-full cursor-pointer"
+          >
+            <Image
+              src={currentImage}
+              alt={`${project.name} screenshot ${currentImageIndex + 1}`}
+              width={isMobileAspect ? 1080 : 1600}
+              height={isMobileAspect ? 2400 : 1000}
+              sizes="(min-width: 640px) 320px, calc(100vw - 40px)"
+              className={
+                isMobileAspect
+                  ? "h-full w-full object-contain p-3"
+                  : "h-full w-full object-cover object-top"
+              }
+            />
+          </button>
 
           <button
             ref={openButtonRef}
             type="button"
-            onClick={(e) => {
-              e.stopPropagation();
-              setIsModalOpen(true);
-            }}
+            onClick={() => setIsModalOpen(true)}
             aria-label={`Open ${project.name} screenshots`}
             className="absolute left-3 top-3 z-10 flex min-h-[44px] items-center gap-1.5 rounded-sm bg-bg-raised/80 px-2.5 text-xs text-ink-faint transition-colors hover:bg-bg-raised hover:text-ink"
           >
@@ -276,10 +279,7 @@ export default function ProjectVisual({ project }: { project: Project }) {
             <>
               <button
                 type="button"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  goToPreviousImage();
-                }}
+                onClick={() => goToPreviousImage()}
                 className="absolute left-2 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-sm bg-bg-raised/80 text-ink transition-colors hover:bg-bg-raised"
                 aria-label="Previous preview image"
               >
@@ -287,10 +287,7 @@ export default function ProjectVisual({ project }: { project: Project }) {
               </button>
               <button
                 type="button"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  goToNextImage();
-                }}
+                onClick={() => goToNextImage()}
                 className="absolute right-2 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-sm bg-bg-raised/80 text-ink transition-colors hover:bg-bg-raised"
                 aria-label="Next preview image"
               >
@@ -306,10 +303,7 @@ export default function ProjectVisual({ project }: { project: Project }) {
                   <button
                     key={idx}
                     type="button"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      setCurrentImageIndex(idx);
-                    }}
+                    onClick={() => setCurrentImageIndex(idx)}
                     className="flex h-11 w-11 items-center justify-center"
                     aria-label={`Show preview image ${idx + 1}`}
                     aria-current={idx === currentImageIndex}

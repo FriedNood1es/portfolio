@@ -51,7 +51,7 @@ export default function Nav() {
             <a
               key={l.href}
               href={l.href}
-              aria-current={active === l.href ? "true" : undefined}
+              aria-current={active === l.href ? "location" : undefined}
               className={`flex min-h-[44px] items-center text-sm transition-colors duration-150 hover:text-accent focus-visible:text-accent ${
                 active === l.href
                   ? "text-accent underline decoration-accent/60 underline-offset-8"
@@ -85,7 +85,7 @@ export default function Nav() {
             <a
               key={l.href}
               href={l.href}
-              aria-current={active === l.href ? "true" : undefined}
+              aria-current={active === l.href ? "location" : undefined}
               className={`flex min-h-[44px] items-center border-b border-line text-sm last:border-0 ${
                 active === l.href ? "text-accent" : "text-ink-dim"
               }`}
