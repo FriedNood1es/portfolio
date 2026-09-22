@@ -110,6 +110,13 @@ export default function Home() {
               >
                 ls projects/
               </a>
+              <a
+                href={`mailto:${identity.email}`}
+                className="flex min-h-[44px] items-center gap-2 rounded-sm border border-line px-4 py-2 text-sm text-ink transition-colors duration-150 hover:border-accent hover:text-accent focus-visible:border-accent focus-visible:text-accent"
+              >
+                <Icon name="mail" />
+                mail kent
+              </a>
             </div>
             <div
               className="hero-in mt-2 flex flex-wrap items-center gap-x-5 gap-y-1"
@@ -218,7 +225,7 @@ export default function Home() {
                   <span className={statusText[p.status].tone}>
                     {statusText[p.status].text}
                   </span>
-                  <span className="hidden text-ink-faint sm:inline">
+                  <span className="text-xs text-ink-faint">
                     {p.period}
                   </span>
                 </li>
@@ -241,6 +248,9 @@ export default function Home() {
                   >
                     <span className="hidden group-open:inline">−</span>
                     <span className="group-open:hidden">+</span>
+                  </span>
+                  <span className="text-xs text-ink-faint" aria-hidden="true">
+                    details
                   </span>
                   <span className="display text-base font-bold text-ink">
                     {p.name}
