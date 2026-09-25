@@ -190,9 +190,9 @@ export default function Home() {
             ))}
             <div className="sm:col-span-2">
               <dt className="text-sm font-bold text-ink">Also</dt>
-              <dd className="mt-2 divide-y divide-line border-y border-line">
+              <dd className="mt-2 grid gap-x-10 sm:grid-cols-2">
                 {skills.slice(2).map((g) => (
-                  <p key={g.label} className="py-3 text-[0.85rem] text-ink-dim">
+                  <p key={g.label} className="border-t border-line py-2 text-[0.85rem] text-ink-dim">
                     <span className="font-bold text-ink">{g.label}: </span>
                     {g.items.join(" · ")}
                   </p>
