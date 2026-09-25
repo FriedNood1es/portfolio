@@ -283,7 +283,7 @@ export default function ProjectVisual({ project }: { project: Project }) {
               <button
                 type="button"
                 onClick={() => goToPreviousImage()}
-                className="absolute left-2 top-1/2 z-10 hidden h-11 w-11 -translate-y-1/2 items-center justify-center rounded-sm bg-bg-raised/80 text-ink transition-colors hover:bg-bg-raised sm:flex"
+                className="absolute left-2 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-sm bg-bg-raised/80 text-ink transition-colors hover:bg-bg-raised"
                 aria-label="Previous preview image"
               >
                 <Icon name="chev-left" className="h-5 w-5" />
@@ -291,7 +291,7 @@ export default function ProjectVisual({ project }: { project: Project }) {
               <button
                 type="button"
                 onClick={() => goToNextImage()}
-                className="absolute right-2 top-1/2 z-10 hidden h-11 w-11 -translate-y-1/2 items-center justify-center rounded-sm bg-bg-raised/80 text-ink transition-colors hover:bg-bg-raised sm:flex"
+                className="absolute right-2 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-sm bg-bg-raised/80 text-ink transition-colors hover:bg-bg-raised"
                 aria-label="Next preview image"
               >
                 <Icon name="chev-right" className="h-5 w-5" />
@@ -302,7 +302,7 @@ export default function ProjectVisual({ project }: { project: Project }) {
                 <span className="sm:hidden"> · swipe</span>
               </div>
 
-              <div className="absolute bottom-3 left-1/2 z-10 hidden -translate-x-1/2 items-center gap-0.5 sm:flex">
+              <div className="absolute bottom-3 left-1/2 z-10 flex -translate-x-1/2 items-center gap-0.5">
                 {images.map((_, idx) => (
                   <button
                     key={idx}
