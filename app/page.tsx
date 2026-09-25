@@ -68,20 +68,20 @@ export default function Home() {
 
             <h1
               className="display hero-in mt-5 text-3xl font-extrabold text-ink sm:text-5xl"
-              style={{ "--d": "0.5s" } as React.CSSProperties}
+              style={{ "--d": "0s" } as React.CSSProperties}
             >
               {identity.name}
             </h1>
             <p
               className="display hero-in mt-2 text-lg font-medium text-accent sm:text-2xl"
-              style={{ "--d": "0.6s" } as React.CSSProperties}
+              style={{ "--d": "0.05s" } as React.CSSProperties}
             >
               {identity.headline} — {identity.headlineQualifier}
             </p>
 
             <div
               className="hero-in mt-6 space-y-1 text-sm text-ink-dim"
-              style={{ "--d": "0.7s" } as React.CSSProperties}
+              style={{ "--d": "0.1s" } as React.CSSProperties}
             >
               <p className="out-line">{identity.degree}</p>
               <p className="out-line">
@@ -94,7 +94,7 @@ export default function Home() {
 
             <p
               className="hero-in mt-7 text-sm"
-              style={{ "--d": "0.85s" } as React.CSSProperties}
+              style={{ "--d": "0.15s" } as React.CSSProperties}
             >
               <span className="text-accent font-bold">$ </span>
               <span className="cursor" aria-hidden />
@@ -102,7 +102,7 @@ export default function Home() {
 
             <div
               className="hero-in mt-7 flex flex-wrap gap-3"
-              style={{ "--d": "0.95s" } as React.CSSProperties}
+              style={{ "--d": "0.2s" } as React.CSSProperties}
             >
               <a
                 href="#projects"
@@ -122,7 +122,7 @@ export default function Home() {
             </div>
             <div
               className="hero-in mt-2 flex flex-wrap items-center gap-x-5 gap-y-1"
-              style={{ "--d": "1.05s" } as React.CSSProperties}
+              style={{ "--d": "0.3s" } as React.CSSProperties}
             >
               <a
                 href={`mailto:${identity.email}`}
