@@ -52,7 +52,7 @@ export default function Home() {
         {/* ————— Hero: the session opens ————— */}
         <section className="mx-auto max-w-4xl px-5 pb-16 pt-14 sm:px-8 sm:pb-24 sm:pt-20">
         <div className="overflow-hidden rounded-md border border-line bg-bg-raised shadow-[0_0_0_1px_var(--bg-inset)]">
-          <div className="flex items-center gap-2 border-b border-line px-4 py-2.5 text-xs text-ink-faint">
+          <div className="flex items-center gap-2 border-b border-line px-4 py-2.5 text-xs text-ink-faint" aria-hidden="true">
             <span className="h-2.5 w-2.5 rounded-full border border-line" />
             <span className="h-2.5 w-2.5 rounded-full border border-line" />
             <span className="h-2.5 w-2.5 rounded-full border border-line" />
