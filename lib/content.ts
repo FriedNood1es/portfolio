@@ -165,8 +165,7 @@ export const projects: Project[] = [
       "A mobile app that verifies medicine authenticity by cross-referencing OCR text extraction and on-device image recognition against official FDA registration data.",
     points: [
       "Identifies supported medicine products on-device (trained TensorFlow Lite image-classification model).",
-      "Reads packaging text across multiple scans, aggregating OCR results to stay accurate on low-quality packaging.",
-      "Covers the full flow — scanning, verification, history, reporting — with Firebase authentication and real-time data.",
+      "Reads packaging text across multiple scans and covers the full flow — scanning, verification, history, reporting — with Firebase authentication and real-time data.",
       "Scaffolded and refactored with agentic coding tools (Claude Code, GitHub Copilot); all generated code reviewed and validated against project requirements.",
     ],
     links: [
@@ -197,8 +196,7 @@ export const projects: Project[] = [
     points: [
       "Drag-and-drop board that only ever rewrites the dragged row (@dnd-kit/react fractional-position reordering).",
       "Sign-in with GitHub and Google (Auth.js v5 database-backed sessions); per-user data enforced on every Server Action, never trusted from the client.",
-      "Conversion-funnel stats page computed from real stage-transition history, CSV export via a REST endpoint (`/api/export`), stale-application flagging, and a full dark-mode palette.",
-      "Built feature-by-feature with an agentic coding workflow (Claude Code), each change tested against the live app before shipping.",
+      "Conversion-funnel stats from real stage history, CSV export via `/api/export`, stale-application flagging, and a full dark-mode palette — built feature-by-feature with an agentic workflow (Claude Code), each change tested live before shipping.",
     ],
     links: [
       { href: "https://kanbo-two.vercel.app", label: "View live app" },
@@ -219,8 +217,7 @@ export const projects: Project[] = [
       "A full-stack football match prediction dashboard serving REST APIs from an Express.js backend to a React SPA, covering 11 competitions with live tracking and AI-generated match insights.",
     points: [
       "Football dashboard covering 11 competitions, with live tracking and AI-generated match insights (Express.js REST backend, React SPA on Vite + TypeScript + TanStack Query).",
-      "Caches third-party sports data behind a modular agent pipeline for retrieval, validation, and reporting.",
-      "Live match countdowns, debounced team search, and a match-comparison report with charts (Chart.js).",
+      "Live countdowns, debounced team search, and comparison charts (Chart.js), backed by cached sports data and a modular agent pipeline for retrieval and validation.",
       "AI match insights via an LLM API, falling back to deterministic templates when the model is unavailable.",
     ],
     links: [
