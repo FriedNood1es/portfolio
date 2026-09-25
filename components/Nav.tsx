@@ -87,7 +87,9 @@ export default function Nav() {
               href={l.href}
               aria-current={active === l.href ? "location" : undefined}
               className={`flex min-h-[44px] items-center border-b border-line text-sm last:border-0 ${
-                active === l.href ? "text-accent" : "text-ink-dim"
+                active === l.href
+                  ? "text-accent underline decoration-accent/60 underline-offset-8"
+                  : "text-ink-dim"
               }`}
               onClick={() => setOpen(false)}
             >
