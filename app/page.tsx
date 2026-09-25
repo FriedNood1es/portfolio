@@ -10,14 +10,8 @@ import {
   projects,
   experience,
   education,
-  type Project,
+  statusText,
 } from "@/lib/content";
-
-const statusText: Record<Project["status"], { text: string; tone: string }> = {
-  shipped: { text: "[shipped]", tone: "text-ok" },
-  "in-progress": { text: "[in progress]", tone: "text-warn" },
-  planned: { text: "[planned]", tone: "text-ink-faint" },
-};
 
 function PromptHeading({
   cmd,

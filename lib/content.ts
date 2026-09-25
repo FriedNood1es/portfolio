@@ -107,6 +107,12 @@ export const skills: SkillGroup[] = [
 
 export type ProjectStatus = "shipped" | "in-progress" | "planned";
 
+export const statusText: Record<ProjectStatus, { text: string; tone: string }> = {
+  shipped: { text: "[shipped]", tone: "text-ok" },
+  "in-progress": { text: "[in progress]", tone: "text-warn" },
+  planned: { text: "[planned]", tone: "text-ink-faint" },
+};
+
 export type Project = {
   slug: string;
   name: string;

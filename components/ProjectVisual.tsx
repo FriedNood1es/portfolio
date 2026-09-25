@@ -11,13 +11,8 @@ import {
 } from "react";
 import { createPortal } from "react-dom";
 import type { Project } from "@/lib/content";
+import { statusText } from "@/lib/content";
 import Icon from "@/components/Icons";
-
-const statusText: Record<Project["status"], { text: string; tone: string }> = {
-  shipped: { text: "[shipped]", tone: "text-ok" },
-  "in-progress": { text: "[in progress]", tone: "text-warn" },
-  planned: { text: "[planned]", tone: "text-ink-faint" },
-};
 
 /**
  * The 16:10 visual slot for a project. Renders the real screenshot when
@@ -27,6 +22,7 @@ const statusText: Record<Project["status"], { text: string; tone: string }> = {
 export default function ProjectVisual({ project }: { project: Project }) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [failed, setFailed] = useState(false);
   const isMounted = useSyncExternalStore(
     () => () => {},
     () => true,
@@ -50,6 +46,10 @@ export default function ProjectVisual({ project }: { project: Project }) {
   }, [project.images, project.image]);
 
   const currentImage = images[currentImageIndex];
+
+  useEffect(() => {
+    setFailed(false);
+  }, [currentImage]);
 
   const goToPreviousImage = useCallback(() => {
     setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length);
@@ -140,7 +140,7 @@ export default function ProjectVisual({ project }: { project: Project }) {
     }
   };
 
-  if (images.length > 0) {
+  if (images.length > 0 && !failed) {
     const modal =
       isModalOpen && currentImage ? (
         <div
@@ -176,6 +176,7 @@ export default function ProjectVisual({ project }: { project: Project }) {
                 height={isMobileAspect ? 2400 : 1000}
                 sizes={isMobileAspect ? "420px" : "960px"}
                 className="h-full w-full object-contain"
+                onError={() => setFailed(true)}
               />
             </div>
 
@@ -261,6 +262,7 @@ export default function ProjectVisual({ project }: { project: Project }) {
                   ? "h-full w-full object-contain p-3"
                   : "h-full w-full object-cover object-top"
               }
+              onError={() => setFailed(true)}
             />
           </button>
 
