@@ -18,6 +18,9 @@ export const identity = {
     "BS Information Technology, Holy Cross of Davao College (2020–2026)",
 };
 
+export const hireStrip =
+  "shipped: bastaFDA, Kanbo + this site — open to entry-level roles";
+
 export const about = [
   `Information Technology graduate specializing in cross-platform mobile
    development with Flutter and modern web development with TypeScript,

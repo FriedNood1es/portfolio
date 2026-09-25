@@ -6,6 +6,7 @@ import Icon from "@/components/Icons";
 import {
   identity,
   about,
+  hireStrip,
   skills,
   projects,
   experience,
@@ -29,7 +30,7 @@ function PromptHeading({
       <h2 id={id} className="display mb-1 text-lg font-bold text-ink">
         {title}
       </h2>
-      <p className="prompt-line mb-8 text-xs text-ink-faint">
+      <p className="prompt-line mb-8 text-xs text-ink-faint" aria-hidden="true">
         {cmd}
         {hint ? (
           <span className="text-ink-dim"> — {hint}</span>
@@ -90,6 +91,7 @@ export default function Home() {
                 Entry-level Software Developer — Flutter, TypeScript, React —
                 this site is the live proof.
               </p>
+              <p className="out-line mt-2 font-bold text-ok">{hireStrip}</p>
             </div>
 
             <p
@@ -378,6 +380,7 @@ export default function Home() {
             Open to entry-level Software Developer roles — web, full-stack, or
             mobile — on-site in Davao or remote.
           </p>
+          <p className="comment mt-3 text-xs">replies within 48h</p>
           <div className="mt-8 flex flex-wrap gap-3">
             <a
               href={`mailto:${identity.email}`}
