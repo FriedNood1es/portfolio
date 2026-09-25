@@ -259,7 +259,7 @@ export default function Home() {
                 <summary className="flex min-h-[44px] cursor-pointer list-none items-center gap-x-3 gap-y-1 px-4 py-3 transition-colors hover:bg-bg-inset [&::-webkit-details-marker]:hidden">
                   <span
                     aria-hidden="true"
-                    className="flex h-11 w-11 shrink-0 items-center justify-center text-lg font-bold text-accent"
+                    className="flex h-11 w-11 shrink-0 items-center justify-center text-xl font-bold text-accent"
                   >
                     <span className="group-open:hidden">▸</span>
                     <span className="hidden group-open:inline">▾</span>
