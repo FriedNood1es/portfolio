@@ -298,7 +298,7 @@ export default function ProjectVisual({ project }: { project: Project }) {
                 {currentImageIndex + 1} / {images.length}
               </div>
 
-              <div className="absolute bottom-3 left-1/2 z-10 flex -translate-x-1/2 items-center gap-0.5">
+              <div className="absolute bottom-3 left-1/2 z-10 hidden -translate-x-1/2 items-center gap-0.5 sm:flex">
                 {images.map((_, idx) => (
                   <button
                     key={idx}
