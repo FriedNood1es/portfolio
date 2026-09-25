@@ -19,7 +19,7 @@ export const identity = {
 };
 
 export const hireStrip =
-  "shipped: bastaFDA, Kanbo + this site — open to entry-level roles";
+  "shipped: bastaFDA, Kanbo + this site · in progress: PitchIQ";
 
 export const about = [
   `Information Technology graduate specializing in cross-platform mobile

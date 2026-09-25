@@ -87,10 +87,6 @@ export default function Home() {
                 {identity.location} · open to entry-level roles, on-site or
                 remote
               </p>
-              <p className="mt-2 max-w-[62ch] font-medium text-ink">
-                Entry-level Software Developer — Flutter, TypeScript, React —
-                this site is the live proof.
-              </p>
               <p className="out-line mt-2 font-bold text-ok">{hireStrip}</p>
             </div>
 
