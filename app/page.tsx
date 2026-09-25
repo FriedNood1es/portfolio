@@ -31,12 +31,16 @@ function PromptHeading({
 }) {
   return (
     <>
-      <h2 id={id} className="mb-2 text-base font-bold text-ink">
+      <h2 id={id} className="display mb-1 text-lg font-bold text-ink">
         {title}
       </h2>
-      <p className="prompt-line mb-8 text-xs text-ink-dim">
+      <p className="prompt-line mb-8 text-xs text-ink-faint">
         {cmd}
-        {hint ? ` — ${hint}` : ""}
+        {hint ? (
+          <span className="text-ink-dim"> — {hint}</span>
+        ) : (
+          ""
+        )}
       </p>
     </>
   );
@@ -84,11 +88,12 @@ export default function Home() {
             >
               <p className="out-line">{identity.degree}</p>
               <p className="out-line">
-                {identity.location} · open to entry-level roles, on-site or remote
+                {identity.location} · open to entry-level roles, on-site or
+                remote
               </p>
-              <p className="out-line">
-                builds practical software — from a medicine-verification app
-                with on-device ML to this site
+              <p className="mt-2 max-w-[62ch] font-medium text-ink">
+                Entry-level Software Developer — Flutter, TypeScript, React —
+                this site is the live proof.
               </p>
             </div>
 
@@ -208,7 +213,7 @@ export default function Home() {
             <PromptHeading
               cmd="ls projects/ --status"
               title="Selected work"
-              hint="expand a row for details"
+              hint="click a project to expand details"
             />
 
             {/* ls-style index */}
