@@ -1,5 +1,6 @@
 import Nav from "@/components/Nav";
 import OpenDetailsOnHash from "@/components/OpenDetailsOnHash";
+import ExpandAllProjects from "@/components/ExpandAllProjects";
 import ProjectVisual from "@/components/ProjectVisual";
 import Icon from "@/components/Icons";
 import {
@@ -239,6 +240,7 @@ export default function Home() {
           </div>
 
           <div className="space-y-4">
+            <ExpandAllProjects />
             {projects.map((p, i) => (
               <details
                 key={p.slug}
@@ -254,8 +256,9 @@ export default function Home() {
                     <span className="hidden group-open:inline">−</span>
                     <span className="group-open:hidden">+</span>
                   </span>
-                  <span className="text-xs text-ink-faint" aria-hidden="true">
-                    details
+                  <span className="text-xs font-bold text-accent" aria-hidden="true">
+                    <span className="group-open:hidden">expand ▸</span>
+                    <span className="hidden group-open:inline">collapse ▾</span>
                   </span>
                   <span className="display text-base font-bold text-ink">
                     {p.name}
