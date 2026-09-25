@@ -121,12 +121,12 @@ export default function Home() {
               </a>
             </div>
             <div
-              className="hero-in mt-2 flex flex-wrap items-center gap-x-5 gap-y-1"
+              className="hero-in mt-2 flex flex-wrap items-center gap-x-4 gap-y-1"
               style={{ "--d": "0.3s" } as React.CSSProperties}
             >
               <a
                 href={`mailto:${identity.email}`}
-                className="link inline-flex min-h-[44px] items-center gap-1.5 text-sm text-ink-dim"
+                className="link inline-flex min-h-[44px] items-center gap-1.5 text-xs text-ink-dim"
               >
                 <Icon name="mail" />
                 mail kent
@@ -135,7 +135,7 @@ export default function Home() {
                 href={identity.github}
                 target="_blank"
                 rel="noreferrer"
-                className="link inline-flex min-h-[44px] items-center gap-1.5 text-sm text-ink-dim"
+                className="link inline-flex min-h-[44px] items-center gap-1.5 text-xs text-ink-dim"
               >
                 <Icon name="github" />
                 {identity.githubHandle}
@@ -144,7 +144,7 @@ export default function Home() {
                 href={identity.linkedin}
                 target="_blank"
                 rel="noreferrer"
-                className="link inline-flex min-h-[44px] items-center gap-1.5 text-sm text-ink-dim"
+                className="link inline-flex min-h-[44px] items-center gap-1.5 text-xs text-ink-dim"
               >
                 <Icon name="linkedin" />
                 in/{identity.linkedinHandle}
