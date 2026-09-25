@@ -146,6 +146,8 @@ export type Project = {
   selfPreview?: boolean;
   /** Placeholder panel accent hue (deg) until a real screenshot lands. */
   hue: number;
+  /** One-line proof fact shown in the ls index (resume-backed). */
+  metric: string;
 };
 
 export const projects: Project[] = [
@@ -178,6 +180,7 @@ export const projects: Project[] = [
     ],
     mobileAspect: true,
     hue: 152,
+    metric: "Defended capstone · on-device ML + OCR",
   },
   {
     slug: "kanbo",
@@ -200,6 +203,7 @@ export const projects: Project[] = [
     ],
     images: ["/projects/kanbo_1.png", "/projects/kanbo_2.png", "/projects/kanbo_3.png"],
     hue: 265,
+    metric: "OAuth sign-in · funnel stats · CSV export",
   },
   {
     slug: "pitchiq",
@@ -222,6 +226,7 @@ export const projects: Project[] = [
     ],
     images: ["/projects/pitchiq_1.png", "/projects/pitchiq_2.png", "/projects/pitchiq_3.png"],
     hue: 210,
+    metric: "11 competitions · live tracking · LLM insights",
   },
 ];
 

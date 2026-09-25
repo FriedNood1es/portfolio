@@ -299,6 +299,7 @@ export default function ProjectVisual({ project }: { project: Project }) {
 
               <div className="absolute right-3 top-3 rounded-sm bg-bg-raised/80 px-2 py-1 font-mono text-xs text-ink">
                 {currentImageIndex + 1} / {images.length}
+                <span className="sm:hidden"> · swipe</span>
               </div>
 
               <div className="absolute bottom-3 left-1/2 z-10 hidden -translate-x-1/2 items-center gap-0.5 sm:flex">
