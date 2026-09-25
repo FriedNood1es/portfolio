@@ -157,10 +157,10 @@ export const projects: Project[] = [
     summary:
       "A mobile app that verifies medicine authenticity by cross-referencing OCR text extraction and on-device image recognition against official FDA registration data.",
     points: [
-      "Trained and integrated a TensorFlow Lite image-classification model to identify supported medicine products on-device.",
-      "Engineered a multi-scan OCR workflow that aggregates results across captures, improving accuracy on low-quality packaging.",
-      "Implemented the full product flow — scanning, verification, history, reporting — with Firebase authentication and real-time data.",
-      "Leveraged agentic coding tools (Claude Code, GitHub Copilot) for scaffolding, refactoring, and test iteration, reviewing and validating all generated code against project requirements.",
+      "Identifies supported medicine products on-device (trained TensorFlow Lite image-classification model).",
+      "Reads packaging text across multiple scans, aggregating OCR results to stay accurate on low-quality packaging.",
+      "Covers the full flow — scanning, verification, history, reporting — with Firebase authentication and real-time data.",
+      "Scaffolded and refactored with agentic coding tools (Claude Code, GitHub Copilot); all generated code reviewed and validated against project requirements.",
     ],
     links: [
       {
@@ -187,10 +187,10 @@ export const projects: Project[] = [
     summary:
       "A drag-and-drop Kanban board for tracking my own job search, with real GitHub/Google sign-in, per-user data, and a conversion-funnel stats page — built to close the backend/database gap in my other projects.",
     points: [
-      "Built the Kanban board on @dnd-kit/react with fractional-position reordering, so dragging a card only ever rewrites that one row, never its neighbors.",
-      "Wired up Auth.js v5 with database-backed sessions and both GitHub and Google OAuth, enforcing per-user data access on every Server Action rather than trusting the client.",
-      "Added a funnel/conversion stats page computed from real stage-transition history, CSV export served through a REST API endpoint (`/api/export`), stale-application flagging, and a full dark-mode palette rather than a generic color inversion.",
-      "Iterated feature-by-feature with an agentic coding workflow (Claude Code), testing each change against the live app before shipping.",
+      "Drag-and-drop board that only ever rewrites the dragged row (@dnd-kit/react fractional-position reordering).",
+      "Sign-in with GitHub and Google (Auth.js v5 database-backed sessions); per-user data enforced on every Server Action, never trusted from the client.",
+      "Conversion-funnel stats page computed from real stage-transition history, CSV export via a REST endpoint (`/api/export`), stale-application flagging, and a full dark-mode palette.",
+      "Built feature-by-feature with an agentic coding workflow (Claude Code), each change tested against the live app before shipping.",
     ],
     links: [
       { href: "https://kanbo-two.vercel.app", label: "View live app" },
@@ -209,10 +209,10 @@ export const projects: Project[] = [
     summary:
       "A full-stack football match prediction dashboard serving REST APIs from an Express.js backend to a React SPA, covering 11 competitions with live tracking and AI-generated match insights.",
     points: [
-      "Built an Express.js/Node.js backend serving REST APIs to a React SPA frontend built with Vite, TypeScript, Tailwind CSS, and TanStack Query.",
-      "Integrated a third-party sports data API with caching and a modular agent pipeline for data retrieval, validation, and reporting across 11 football competitions.",
-      "Implemented live match tracking with countdown timers, debounced team search, and a match comparison report with data visualization using Chart.js.",
-      "Integrated an LLM API for AI-generated match insights with graceful fallback to deterministic templates.",
+      "Football dashboard covering 11 competitions, with live tracking and AI-generated match insights (Express.js REST backend, React SPA on Vite + TypeScript + TanStack Query).",
+      "Caches third-party sports data behind a modular agent pipeline for retrieval, validation, and reporting.",
+      "Live match countdowns, debounced team search, and a match-comparison report with charts (Chart.js).",
+      "AI match insights via an LLM API, falling back to deterministic templates when the model is unavailable.",
     ],
     links: [
       { href: "https://pitch-iq-theta.vercel.app", label: "View live app" },
