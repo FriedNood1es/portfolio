@@ -21,6 +21,9 @@ export const identity = {
 export const hireStrip =
   "shipped: bastaFDA, Kanbo + this site · in progress: PitchIQ";
 
+export const hireSub =
+  "Entry-level Software Developer — open to roles in Davao City or remote.";
+
 export const hireStack = "Flutter · TypeScript · React · Next.js · Firebase";
 
 export const about = [

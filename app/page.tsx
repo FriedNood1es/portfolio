@@ -7,6 +7,7 @@ import {
   identity,
   about,
   hireStrip,
+  hireSub,
   hireStack,
   skills,
   projects,
@@ -78,16 +79,19 @@ export default function Home() {
             >
               {identity.headline} — {identity.headlineQualifier}
             </p>
+            <p
+              className="hero-in mt-3 max-w-[62ch] text-sm text-ink-dim"
+              style={{ "--d": "0.08s" } as React.CSSProperties}
+            >
+              {hireSub}
+            </p>
 
             <div
               className="hero-in mt-6 space-y-1 text-sm text-ink-dim"
               style={{ "--d": "0.1s" } as React.CSSProperties}
             >
               <p className="out-line">{identity.degree}</p>
-              <p className="out-line">
-                {identity.location} · open to entry-level roles, on-site or
-                remote
-              </p>
+              <p className="out-line">{identity.location}</p>
               <p className="out-line mt-2 font-bold text-ok">{hireStrip}</p>
               <p className="out-line">{hireStack}</p>
             </div>
@@ -108,7 +112,7 @@ export default function Home() {
                 href="#projects"
                 className="flex min-h-[44px] items-center rounded-sm bg-accent px-4 py-2 text-sm font-bold text-bg transition-colors duration-150 hover:bg-accent-deep focus-visible:bg-accent-deep"
               >
-                ls projects/
+                View projects
               </a>
             </div>
             <div
