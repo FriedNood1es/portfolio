@@ -242,10 +242,17 @@ export default function Home() {
                 open={i === 0}
                 className="reveal group scroll-mt-24 rounded-sm border border-line bg-bg-raised"
               >
-                <summary className="flex min-h-[44px] cursor-pointer list-none items-center gap-x-3 gap-y-1 px-4 py-3 [&::-webkit-details-marker]:hidden">
-                  <span className="text-sm font-bold text-accent" aria-hidden="true">
-                    <span className="group-open:hidden">expand ▸</span>
-                    <span className="hidden group-open:inline">collapse ▾</span>
+                <summary className="flex min-h-[44px] cursor-pointer list-none items-center gap-x-3 gap-y-1 px-4 py-3 transition-colors hover:bg-bg-inset [&::-webkit-details-marker]:hidden">
+                  <span
+                    aria-hidden="true"
+                    className="flex h-11 w-11 shrink-0 items-center justify-center text-lg font-bold text-accent"
+                  >
+                    <span className="group-open:hidden">▸</span>
+                    <span className="hidden group-open:inline">▾</span>
+                  </span>
+                  <span className="sr-only">
+                    <span className="group-open:hidden">Expand</span>
+                    <span className="hidden group-open:inline">Collapse</span>
                   </span>
                   <span className="display text-lg font-bold text-ink">
                     {p.name}
