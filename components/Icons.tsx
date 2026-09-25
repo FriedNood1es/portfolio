@@ -132,6 +132,13 @@ const paths: Record<string, React.ReactNode> = {
       <path d="M7 7.5h.01M7 16.5h.01" />
     </>
   ),
+  globe: (
+    <>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M3 12h18" />
+      <path d="M12 3c2.5 2.6 3.9 5.7 3.9 9S14.5 18.4 12 21c-2.5-2.6-3.9-5.7-3.9-9S9.5 5.6 12 3Z" />
+    </>
+  ),
 };
 
 export default function Icon({

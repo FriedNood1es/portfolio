@@ -45,17 +45,14 @@ export const skills: SkillGroup[] = [
     items: ["TypeScript", "JavaScript (ES6+)", "Dart", "Python", "Java"],
   },
   {
-    label: "Mobile & Web",
+    label: "Mobile",
     icon: "devices",
-    items: [
-      "Flutter",
-      "React.js",
-      "Next.js",
-      "Native Android",
-      "HTML5",
-      "CSS3",
-      "Responsive Design",
-    ],
+    items: ["Flutter", "Native Android"],
+  },
+  {
+    label: "Frontend",
+    icon: "globe",
+    items: ["React.js", "Next.js", "HTML5", "CSS3"],
   },
   {
     label: "AI & Machine Learning",
@@ -111,7 +108,12 @@ export const skills: SkillGroup[] = [
   {
     label: "Design",
     icon: "pen",
-    items: ["UI/UX prototyping", "Adobe Photoshop", "Canva"],
+    items: [
+      "UI/UX prototyping",
+      "Responsive Design",
+      "Adobe Photoshop",
+      "Canva",
+    ],
   },
 ];
 
