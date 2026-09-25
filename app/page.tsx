@@ -7,6 +7,7 @@ import {
   identity,
   about,
   hireStrip,
+  hireStack,
   skills,
   projects,
   experience,
@@ -88,6 +89,7 @@ export default function Home() {
                 remote
               </p>
               <p className="out-line mt-2 font-bold text-ok">{hireStrip}</p>
+              <p className="out-line">{hireStack}</p>
             </div>
 
             <p

@@ -21,6 +21,8 @@ export const identity = {
 export const hireStrip =
   "shipped: bastaFDA, Kanbo + this site · in progress: PitchIQ";
 
+export const hireStack = "Flutter · TypeScript · React · Next.js · Firebase";
+
 export const about = [
   `Information Technology graduate specializing in cross-platform mobile
    development with Flutter and modern web development with TypeScript,
