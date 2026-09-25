@@ -7,10 +7,19 @@ import { useEffect } from "react";
  * targeted row on initial load and on hash change, then re-scroll —
  * opening shifts layout, so the browser's default jump lands short.
  * Non-details hashes (sections) are left to default behavior.
- * Otherwise the ls index carries the scan: first row open, rest closed.
+ * PINNED: desktop opens all project rows up front so evidence is visible
+ * without extra clicks; mobile keeps first-open for length.
  */
 export default function OpenDetailsOnHash() {
   useEffect(() => {
+    if (
+      !window.location.hash &&
+      window.matchMedia("(min-width: 640px)").matches
+    ) {
+      document.querySelectorAll("#projects details").forEach((el) => {
+        if (el instanceof HTMLDetailsElement) el.open = true;
+      });
+    }
     const openFromHash = () => {
       const id = window.location.hash.slice(1);
       if (!id) {
