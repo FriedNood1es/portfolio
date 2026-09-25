@@ -110,20 +110,20 @@ export default function Home() {
               >
                 ls projects/
               </a>
-              <a
-                href={identity.resume}
-                target="_blank"
-                rel="noreferrer"
-                className="flex min-h-[44px] items-center gap-1.5 rounded-sm border border-line px-4 py-2 text-sm text-ink transition-colors duration-150 hover:border-accent hover:text-accent focus-visible:border-accent focus-visible:text-accent"
-              >
-                <Icon name="download" />
-                resume.pdf
-              </a>
             </div>
             <div
               className="hero-in mt-2 flex flex-wrap items-center gap-x-4 gap-y-1"
               style={{ "--d": "0.3s" } as React.CSSProperties}
             >
+              <a
+                href={identity.resume}
+                target="_blank"
+                rel="noreferrer"
+                className="link inline-flex min-h-[44px] items-center gap-1.5 text-xs text-ink-dim"
+              >
+                <Icon name="download" />
+                resume.pdf
+              </a>
               <a
                 href={`mailto:${identity.email}`}
                 className="link inline-flex min-h-[44px] items-center gap-1.5 text-xs text-ink-dim"
