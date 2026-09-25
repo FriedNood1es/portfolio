@@ -48,14 +48,25 @@ export const skills: SkillGroup[] = [
     items: ["TypeScript", "JavaScript (ES6+)", "Dart", "Python", "Java"],
   },
   {
-    label: "Mobile",
-    icon: "devices",
-    items: ["Flutter", "Native Android"],
+    label: "Testing & QA",
+    icon: "bug",
+    items: [
+      "Test case design",
+      "Manual & functional testing",
+      "Data validation",
+      "User acceptance testing",
+      "Bug reporting",
+    ],
   },
   {
     label: "Frontend",
     icon: "globe",
     items: ["React.js", "Next.js", "HTML5", "CSS3"],
+  },
+  {
+    label: "Mobile",
+    icon: "devices",
+    items: ["Flutter", "Native Android"],
   },
   {
     label: "AI & Machine Learning",
@@ -84,17 +95,6 @@ export const skills: SkillGroup[] = [
     label: "Backend & APIs",
     icon: "server",
     items: ["Prisma ORM", "Auth.js", "RESTful APIs"],
-  },
-  {
-    label: "Testing & QA",
-    icon: "bug",
-    items: [
-      "Test case design",
-      "Manual & functional testing",
-      "Data validation",
-      "User acceptance testing",
-      "Bug reporting",
-    ],
   },
   {
     label: "DevOps & Tooling",
