@@ -193,13 +193,29 @@ export default function Home() {
             <div className="sm:col-span-2">
               <dt className="text-sm font-bold text-ink">Also</dt>
               <dd className="mt-2 grid gap-x-10 sm:grid-cols-2">
-                {skills.slice(2).map((g) => (
+                {skills.slice(2, 6).map((g) => (
                   <p key={g.label} className="border-t border-line py-2 text-[0.85rem] text-ink-dim">
                     <span className="font-bold text-ink">{g.label}: </span>
                     {g.items.join(" · ")}
                   </p>
                 ))}
               </dd>
+              {skills.length > 6 && (
+                <details className="group/more mt-2">
+                  <summary className="inline-flex min-h-[44px] cursor-pointer items-center text-xs font-bold text-accent [&::-webkit-details-marker]:hidden">
+                    <span className="group-open/more:hidden">more skills ▸</span>
+                    <span className="hidden group-open/more:inline">fewer ▾</span>
+                  </summary>
+                  <div className="grid gap-x-10 sm:grid-cols-2">
+                    {skills.slice(6).map((g) => (
+                      <p key={g.label} className="border-t border-line py-2 text-[0.85rem] text-ink-dim">
+                        <span className="font-bold text-ink">{g.label}: </span>
+                        {g.items.join(" · ")}
+                      </p>
+                    ))}
+                  </div>
+                </details>
+              )}
             </div>
           </dl>
         </section>
