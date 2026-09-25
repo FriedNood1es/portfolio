@@ -125,6 +125,13 @@ const paths: Record<string, React.ReactNode> = {
       <path d="M14 4h6m0 0v6m0-6L10 14" />
     </>
   ),
+  server: (
+    <>
+      <rect x="3" y="4" width="18" height="7" rx="1" />
+      <rect x="3" y="13" width="18" height="7" rx="1" />
+      <path d="M7 7.5h.01M7 16.5h.01" />
+    </>
+  ),
 };
 
 export default function Icon({

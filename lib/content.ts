@@ -76,9 +76,14 @@ export const skills: SkillGroup[] = [
     ],
   },
   {
-    label: "Backend & Databases",
+    label: "Databases",
     icon: "database",
-    items: ["Firebase (Auth, Firestore)", "PostgreSQL", "MySQL", "SQL", "Prisma ORM", "Auth.js", "RESTful APIs"],
+    items: ["Firebase (Auth, Firestore)", "PostgreSQL", "MySQL", "SQL"],
+  },
+  {
+    label: "Backend & APIs",
+    icon: "server",
+    items: ["Prisma ORM", "Auth.js", "RESTful APIs"],
   },
   {
     label: "Testing & QA",
