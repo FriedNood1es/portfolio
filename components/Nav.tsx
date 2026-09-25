@@ -6,8 +6,6 @@ const links = [
   { href: "#about", label: "about" },
   { href: "#skills", label: "skills" },
   { href: "#projects", label: "projects" },
-  { href: "#experience", label: "experience" },
-  { href: "#education", label: "education" },
   { href: "#contact", label: "contact" },
 ];
 
@@ -46,7 +44,7 @@ export default function Nav() {
           <span className="text-accent">~</span>/kent-lozano
         </a>
 
-        <nav className="hidden gap-4 sm:flex" aria-label="Main">
+        <nav className="hidden gap-6 sm:flex" aria-label="Main">
           {links.map((l) => (
             <a
               key={l.href}
