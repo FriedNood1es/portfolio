@@ -217,43 +217,21 @@ export default function Home() {
             />
 
             {/* ls-style index */}
-            <ul className="mb-12 max-w-[62ch] space-y-3 text-sm">
-              {projects.map((p) => {
-                const demo =
-                  p.links?.find((l) => /live/i.test(l.label)) ?? p.links?.[0];
-                return (
-                  <li key={p.slug}>
-                    <div className="flex items-center gap-2">
-                      <a
-                        href={`#${p.slug}`}
-                        className="link inline-flex min-h-[44px] items-center"
-                      >
-                        {p.slug}/
-                      </a>
-                      <span className="leader" aria-hidden />
-                      <span className={statusText[p.status].tone}>
-                        {statusText[p.status].text}
-                      </span>
-                      <span className="text-xs text-ink-faint">
-                        {p.period}
-                      </span>
-                      {demo && (
-                        <a
-                          href={demo.href}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="link inline-flex min-h-[44px] items-center text-xs font-bold"
-                        >
-                          {/live/i.test(demo.label) ? "live ↗" : "repo ↗"}
-                        </a>
-                      )}
-                    </div>
-                    <p className="out-line mt-0.5 text-xs text-ink-dim">
-                      {p.metric}
-                    </p>
-                  </li>
-                );
-              })}
+            <ul className="mb-12 max-w-[62ch] space-y-1.5 text-sm">
+              {projects.map((p) => (
+                <li key={p.slug} className="flex min-w-0 flex-wrap items-center gap-2">
+                  <a
+                    href={`#${p.slug}`}
+                    className="link inline-flex min-h-[44px] items-center"
+                  >
+                    {p.slug}/
+                  </a>
+                  <span className="leader" aria-hidden />
+                  <span className={statusText[p.status].tone}>
+                    {statusText[p.status].text}
+                  </span>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -293,6 +271,9 @@ export default function Home() {
 
                   <div>
                     <p className="comment mt-1 text-xs">{p.kind}</p>
+                    <p className="out-line mt-1 text-xs text-ink-dim">
+                      {p.period} · {p.metric}
+                    </p>
 
                     <p className="mt-3 max-w-[62ch] text-[0.9rem] leading-[1.8] text-ink-dim">
                       {p.summary}
