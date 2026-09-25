@@ -271,7 +271,7 @@ export default function ProjectVisual({ project }: { project: Project }) {
             type="button"
             onClick={() => setIsModalOpen(true)}
             aria-label={`Open ${project.name} screenshots`}
-            className="absolute left-3 top-3 z-10 flex min-h-[44px] items-center gap-1.5 rounded-sm bg-bg-raised/80 px-2.5 text-xs text-ink-faint transition-colors hover:bg-bg-raised hover:text-ink"
+            className="absolute bottom-3 left-3 z-10 flex min-h-[44px] items-center gap-1.5 rounded-sm bg-bg-raised/80 px-2.5 text-xs text-ink-faint transition-colors hover:bg-bg-raised hover:text-ink"
           >
             <Icon name="expand" className="h-4 w-4" />
             expand
@@ -279,10 +279,11 @@ export default function ProjectVisual({ project }: { project: Project }) {
 
           {images.length > 1 && (
             <>
+              <span className="sr-only">Swipe preview for more images</span>
               <button
                 type="button"
                 onClick={() => goToPreviousImage()}
-                className="absolute left-2 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-sm bg-bg-raised/80 text-ink transition-colors hover:bg-bg-raised"
+                className="absolute left-2 top-1/2 z-10 hidden h-11 w-11 -translate-y-1/2 items-center justify-center rounded-sm bg-bg-raised/80 text-ink transition-colors hover:bg-bg-raised sm:flex"
                 aria-label="Previous preview image"
               >
                 <Icon name="chev-left" className="h-5 w-5" />
@@ -290,7 +291,7 @@ export default function ProjectVisual({ project }: { project: Project }) {
               <button
                 type="button"
                 onClick={() => goToNextImage()}
-                className="absolute right-2 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-sm bg-bg-raised/80 text-ink transition-colors hover:bg-bg-raised"
+                className="absolute right-2 top-1/2 z-10 hidden h-11 w-11 -translate-y-1/2 items-center justify-center rounded-sm bg-bg-raised/80 text-ink transition-colors hover:bg-bg-raised sm:flex"
                 aria-label="Next preview image"
               >
                 <Icon name="chev-right" className="h-5 w-5" />
