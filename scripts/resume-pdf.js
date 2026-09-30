@@ -8,13 +8,12 @@ const path = require("path");
 const { chromium } = require("playwright-core");
 
 const root = path.join(__dirname, "..");
-const pairs = [
-  ["Kent_Lozano_Resume.html", "Kent_Lozano_Resume.pdf"],
-  ["KentLozano-Resume.html", "KentLozano-Resume-Original.pdf"],
-  ["KentLozano-Resume-Web.html", "KentLozano-Resume-Web.pdf"],
-  ["KentLozano-Resume-QA.html", "KentLozano-Resume-QA.pdf"],
-  ["KentLozano-Resume-Mobile.html", "KentLozano-Resume-Mobile.pdf"],
-];
+  const pairs = [
+    ["Kent_Lozano_Resume.html", "Kent_Lozano_Resume.pdf"],
+    ["KentLozano-Resume-Web.html", "KentLozano-Resume-Web.pdf"],
+    ["KentLozano-Resume-QA.html", "KentLozano-Resume-QA.pdf"],
+    ["KentLozano-Resume-Mobile.html", "KentLozano-Resume-Mobile.pdf"],
+  ];
 
 function findChrome() {
   const candidates = [

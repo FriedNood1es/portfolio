@@ -1,4 +1,4 @@
-// All claims on this site mirror KentLozano-Resume.html (the source of truth).
+// All claims on this site mirror Kent_Lozano_Resume.html (the source of truth).
 // Rule: every line must be a Defensible Claim — provable or explainable live.
 // bastaFDA has NO database; do not reintroduce MySQL/schema claims here.
 
@@ -12,10 +12,10 @@ export const identity = {
   githubHandle: "FriedNood1es",
   linkedin: "https://www.linkedin.com/in/kntlzn/",
   linkedinHandle: "kntlzn",
-  resume: "/resume/KentLozano-Resume-Web.pdf",
+  resume: "/resume/Kent_Lozano_Resume.pdf",
   site: "kent-lozano.vercel.app",
   degree:
-    "BS Information Technology, Holy Cross of Davao College (2020–2026)",
+    "BS Information Technology, Holy Cross of Davao College (2026)",
 };
 
 export const hireStrip =
@@ -245,7 +245,7 @@ export const experience: Experience[] = [
     role: "QA Intern, Developer Track",
     detail: "Academic Intervention System (Laravel)",
     location: "Davao City, Philippines",
-    period: "Feb – May 2026",
+    period: "02/2026 – 05/2026",
     points: [
       "Performed QA on an academic intervention system for the Office of the VP for Academic Affairs that monitors per-course and per-professor grade trends behind pass/fail rates.",
       "Designed and executed test cases across grade-checking, analytics, and reporting features; verified grade computations against source academic records.",
@@ -259,7 +259,7 @@ export const education = {
   org: "Holy Cross of Davao College",
   degree: "BS Information Technology",
   location: "Davao City, Philippines",
-  period: "2020 – 2026",
+    period: "2026",
   capstone: "bastaFDA — Mobile Verification of FDA-Approved Products",
   coursework: [
     "Mobile Application Development",
